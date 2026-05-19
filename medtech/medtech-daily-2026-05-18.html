@@ -1,424 +1,429 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<title>MED & TECH — Snapshot 2026-05-18</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Med &amp; Tech — Snapshot Lunedì 18 maggio 2026</title>
 <style>
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  margin: 0; padding: 32px 28px;
-  background: #1c1c1e; color: #f2f2f7;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px; line-height: 1.45;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+  background: #1c1c1e;
+  color: #f2f2f7;
+  padding: 32px 24px 64px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
-header.page-head {
-  max-width: 1600px; margin: 0 auto 28px;
+.wrap { max-width: 1400px; margin: 0 auto; }
+header { margin-bottom: 32px; }
+.tag {
+  display: inline-block;
+  background: rgba(10,132,255,0.16);
+  color: #0a84ff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
-.page-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 600; }
-.page-head .meta { color: #8e8e93; font-size: 14px; }
+h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 4px; }
+.date { color: #98989f; font-size: 15px; }
 .summary {
-  display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 32px;
 }
-.summary .pill {
-  background: #2c2c2e; padding: 10px 16px; border-radius: 10px;
-  border: 1px solid #3a3a3c;
+.sum-box {
+  background: #2c2c2e;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
-.summary .pill strong { display: block; font-size: 18px; }
-.summary .pill span { color: #8e8e93; font-size: 12px; }
-.grid {
-  max-width: 1600px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+.sum-box .lbl { color: #98989f; font-size: 12px; letter-spacing: 0.3px; text-transform: uppercase; margin-bottom: 6px; }
+.sum-box .val { font-size: 22px; font-weight: 700; }
+.sum-box.rosso .val { color: #ff453a; }
+.sum-box.giallo .val { color: #ffd60a; }
+.sum-box.verde .val { color: #30d158; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 16px;
 }
 .card {
-  background: #2c2c2e; border-radius: 12px;
-  padding: 18px; border: 1px solid #3a3a3c;
+  background: #2c2c2e;
+  border-radius: 16px;
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.card-head {
-  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
-  margin-bottom: 14px;
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.card-title { font-size: 16px; font-weight: 600; line-height: 1.3; flex: 1; }
+.card-sub { color: #98989f; font-size: 13px; }
+.card-sub strong { color: #d6d6dc; font-weight: 600; }
+
+.sem {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
 }
-.card-head h2 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
-.card-head .sub { color: #8e8e93; font-size: 12px; }
-.badge {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-  color: #000; padding: 5px 10px; border-radius: 999px;
-  white-space: nowrap;
+.sem-rosso { background: rgba(255,69,58,0.16); color: #ff453a; }
+.sem-giallo { background: rgba(255,214,10,0.16); color: #ffd60a; }
+.sem-verde { background: rgba(48,209,88,0.16); color: #30d158; }
+.sem-nero { background: rgba(142,142,147,0.2); color: #8e8e93; }
+
+.cold-badge {
+  display: inline-block;
+  background: rgba(10,132,255,0.12);
+  color: #0a84ff;
+  padding: 3px 9px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  align-self: flex-start;
 }
+
 .kpi-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
-  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 12px;
 }
-.kpi {
-  background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 8px;
-}
-.kpi-label { color: #8e8e93; font-size: 10px; text-transform: uppercase; letter-spacing: 0.3px; }
-.kpi-val { font-size: 15px; font-weight: 600; margin-top: 2px; }
-.campagne {
-  color: #8e8e93; font-size: 11px; margin-bottom: 12px;
-  line-height: 1.4;
-}
-.campagne strong { color: #f2f2f7; font-weight: 600; }
+.kpi { display: flex; flex-direction: column; gap: 2px; }
+.kpi-label { color: #98989f; font-size: 11px; letter-spacing: 0.2px; text-transform: uppercase; }
+.kpi-val { font-size: 14px; font-weight: 600; color: #f2f2f7; }
+
 .action {
-  padding: 10px 12px; border-radius: 8px; font-size: 12px; line-height: 1.5;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border-left: 3px solid #8e8e93;
 }
-footer {
-  max-width: 1600px; margin: 28px auto 0; color: #8e8e93;
-  font-size: 11px; padding-top: 16px; border-top: 1px solid #3a3a3c;
+.action-label { font-size: 10px; letter-spacing: 0.4px; text-transform: uppercase; color: #98989f; margin-bottom: 4px; }
+.action-text { font-size: 13px; line-height: 1.45; color: #e5e5ea; }
+.action-rosso { background: rgba(255,69,58,0.08); border-left-color: #ff453a; }
+.action-giallo { background: rgba(255,214,10,0.08); border-left-color: #ffd60a; }
+.action-verde { background: rgba(48,209,88,0.08); border-left-color: #30d158; }
+.action-nero  { background: rgba(142,142,147,0.1); border-left-color: #8e8e93; }
+
+.footer-note {
+  margin-top: 24px;
+  color: #98989f;
+  font-size: 12px;
+  padding: 12px 14px;
+  background: #2c2c2e;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
 }
+footer { margin-top: 36px; color: #6a6a70; font-size: 11px; }
 </style>
 </head>
 <body>
-<header class="page-head">
-  <h1>MED &amp; TECH — Open Day Total Lift / Total Sculpt</h1>
-  <div class="meta">Snapshot Meta Ads · dati del <strong style="color:#f2f2f7">Lunedì 18 maggio 2026</strong></div>
-  
-    <div class="summary">
-      <div class="pill"><strong>13</strong><span>clienti</span></div>
-      <div class="pill"><strong>268.46 €</strong><span>spesa totale</span></div>
-      <div class="pill"><strong>38</strong><span>lead totali</span></div>
-      <div class="pill"><strong>7.06 €</strong><span>CPL medio</span></div>
-      <div class="pill" style="border-left:4px solid #ff453a;"><strong>1</strong><span>alert rossi</span></div>
-      <div class="pill" style="border-left:4px solid #ffd60a;"><strong>0</strong><span>gialli</span></div>
-      <div class="pill" style="border-left:4px solid #30d158;"><strong>12</strong><span>verdi</span></div>
-    </div>
-    
-</header>
-<main class="grid">
+<div class="wrap">
+  <header>
+    <span class="tag">Snapshot giornaliero</span>
+    <h1>Med &amp; Tech · Open Day Total Lift / Sculpt</h1>
+    <div class="date">Lunedì 18 maggio 2026</div>
+  </header>
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>FARMACIA MAURO OPEN DAY DOTT.SSA MARCELLA OLIVETI</h2>
-          <div class="sub">06.05 → 19.05</div>
+  <section class="summary">
+    <div class="sum-box"><div class="lbl">Soggetti</div><div class="val">13</div></div>
+    <div class="sum-box"><div class="lbl">Spesa totale</div><div class="val">268,46 €</div></div>
+    <div class="sum-box"><div class="lbl">Lead totali</div><div class="val">38</div></div>
+    <div class="sum-box"><div class="lbl">CPL medio</div><div class="val">7,06 €</div></div>
+    <div class="sum-box rosso"><div class="lbl">Alert rossi</div><div class="val">1</div></div>
+    <div class="sum-box giallo"><div class="lbl">Da monitorare</div><div class="val">0</div></div>
+    <div class="sum-box verde"><div class="lbl">In linea</div><div class="val">12</div></div>
+  </section>
+
+  <section class="cards">
+    
+        <div class="card" data-sem="rosso">
+          <div class="card-head">
+            <div class="card-title">STUDIO DR RENATO CASADEI E DOTT SSA VIRGINIA CASADEI</div>
+            <span class="sem sem-rosso">ROSSO</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>05.05 → 18.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">5,11 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">0</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">391</span></div>
+          </div>
+          <div class="action action-rosso">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Spesa 5,11 € senza lead nel periodo di cold start (giorno 1/7). Verificare creatività e form.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">35.89 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">35.89 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>4.295</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>1.40%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - FARMACIA MAURO OPEN DAY DOTT.SSA MARCELLA OLIVETI</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>DR. RICAPITO EZIO</h2>
-          <div class="sub">15.05 → 28.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">FARMACIA MAURO OPEN DAY DOTT.SSA MARCELLA OLIVETI</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>06.05 → 19.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">35,89 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">1</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">35,89 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">4.295</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">29.16 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">9</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">3.24 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>2.717</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>4.82%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - DR. RICAPITO EZIO</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>DR ZUFFADA E NARDI</h2>
-          <div class="sub">07.05 → 20.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">DR. RICAPITO EZIO</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>15.05 → 28.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">29,16 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">9</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">3,24 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">2.717</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">27.05 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">13.53 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>1.084</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>4.98%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - DR ZUFFADA E NARDI</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>STUDIO DELLA DOTT. SSA BRUNA ARGENTI</h2>
-          <div class="sub">07.05 → 20.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">DR ZUFFADA E NARDI</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>07.05 → 20.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">27,05 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">2</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">13,53 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">1.084</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">21.48 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">10.74 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>2.069</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>3.82%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - STUDIO DELLA DOTT. SSA BRUNA ARGENTI</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>DOTT. LO GIUDICE</h2>
-          <div class="sub">15.05 → 28.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">STUDIO DELLA DOTT. SSA BRUNA ARGENTI</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>07.05 → 20.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">21,48 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">2</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">10,74 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">2.069</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">20.86 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">8</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">2.61 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>2.657</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>3.80%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - DOTT. LO GIUDICE</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>DOTT.SSA ROSALBA DI NATALE</h2>
-          <div class="sub">11.05 → 24.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">DOTT. LO GIUDICE</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>15.05 → 28.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">20,86 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">8</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">2,61 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">2.657</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">20.39 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">10.20 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>2.097</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>2.67%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - DOTT.SSA ROSALBA DI NATALE</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>STUDIO DOTT.SSA FRANCESCA PES</h2>
-          <div class="sub">12.05 → 25.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">DOTT.SSA ROSALBA DI NATALE</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>11.05 → 24.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">20,39 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">2</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">10,20 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">2.097</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">20.26 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">4</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">5.07 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>1.614</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>3.22%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - STUDIO DOTT.SSA FRANCESCA PES</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>STUDIO DEL DOTT. MATTEO PARADISO</h2>
-          <div class="sub">08.05 → 21.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">STUDIO DOTT.SSA FRANCESCA PES</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>12.05 → 25.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">20,26 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">4</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">5,07 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">1.614</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">19.81 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">9.90 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>1.920</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>2.34%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - STUDIO DEL DOTT. MATTEO PARADISO</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>DOTT.SSA DEL VESCOVO</h2>
-          <div class="sub">14.05 → 27.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">STUDIO DEL DOTT. MATTEO PARADISO</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>08.05 → 21.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">19,81 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">2</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">9,90 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">1.920</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">18.27 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">18.27 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>1.778</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>3.43%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - DOTT.SSA DEL VESCOVO</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>DOTT. FABIO SCUDERI</h2>
-          <div class="sub">16.05 → 29.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">DOTT.SSA DEL VESCOVO</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>14.05 → 27.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">18,27 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">1</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">18,27 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">1.778</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">17.94 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">4</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">4.49 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>1.831</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>4.42%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - DOTT. FABIO SCUDERI</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>STUDIO DOTT. RICCIARDI LUMINA</h2>
-          <div class="sub">13.05 → 26.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">DOTT. FABIO SCUDERI</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>16.05 → 29.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">17,94 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">4</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">4,49 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">1.831</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">16.73 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">16.73 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>1.404</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>1.50%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - STUDIO DOTT. RICCIARDI LUMINA</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #30d158;">
-      <header class="card-head">
-        <div>
-          <h2>DOTT.SSA TIZIANA MASTROMARINO</h2>
-          <div class="sub">14.05 → 27.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">STUDIO DOTT. RICCIARDI LUMINA</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>13.05 → 26.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">16,73 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">1</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">16,73 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">1.404</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">15.51 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">7.75 €</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>1.295</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>2.63%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - DOTT.SSA TIZIANA MASTROMARINO</div>
-      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
-      </div>
-    </article>
-    
 
-    <article class="card" style="border-left:5px solid #ff453a;">
-      <header class="card-head">
-        <div>
-          <h2>STUDIO DR RENATO CASADEI E DOTT SSA VIRGINIA CASADEI</h2>
-          <div class="sub">05.05 → 18.05</div>
+        <div class="card" data-sem="verde">
+          <div class="card-head">
+            <div class="card-title">DOTT.SSA TIZIANA MASTROMARINO</div>
+            <span class="sem sem-verde">VERDE</span>
+          </div>
+          <span class="cold-badge">Giorno 1/7 cold start</span>
+          <div class="card-sub">Finestra: <strong>14.05 → 27.05</strong></div>
+          <div class="kpi-grid">
+            <div class="kpi"><span class="kpi-label">Spesa</span><span class="kpi-val">15,51 €</span></div>
+            <div class="kpi"><span class="kpi-label">Lead</span><span class="kpi-val">2</span></div>
+            <div class="kpi"><span class="kpi-label">CPL</span><span class="kpi-val">7,75 €</span></div>
+            <div class="kpi"><span class="kpi-label">CPL media 7gg</span><span class="kpi-val">—</span></div>
+            <div class="kpi"><span class="kpi-label">Impressioni</span><span class="kpi-val">1.295</span></div>
+          </div>
+          <div class="action action-verde">
+            <div class="action-label">Azione consigliata</div>
+            <div class="action-text">Lead acquisiti in cold start (giorno 1/7). Continuare a raccogliere storico per attivare confronto CPL 7gg.</div>
+          </div>
         </div>
-        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
-      </header>
-      <div class="kpi-grid">
-        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">5.11 €</div></div>
-        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
-        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
-        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
         
-        <div class='kpi'><div class='kpi-label'>Impressioni</div><div class='kpi-val'>391</div></div>
-        <div class='kpi'><div class='kpi-label'>CTR</div><div class='kpi-val'>3.84%</div></div>
-        
-      </div>
-      <div class='campagne'><strong>Campagna:</strong> Open Day - Total Lift - STUDIO DR RENATO CASADEI E DOTT SSA VIRGINIA CASADEI</div>
-      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
-        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 5.11 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
-      </div>
-    </article>
-    
-</main>
+  </section>
 
-    <footer>
-      ⏳ <strong>Cold start in corso:</strong> alcune campagne non hanno ancora 7 giorni di storico.
-      I semafori per quelle campagne seguono logica semplificata (VERDE = lead > 0, ROSSO = 0 lead).
-      Dal giorno 8 i semafori utilizzeranno il confronto CPL vs media 7gg.<br>
-      Generato automaticamente il 19/05/2026 07:54 · Snapshot relativo ai dati del Lunedì 18 maggio 2026.
-    </footer>
-    
+  <div class="footer-note">⏳ Alcune campagne sono in cold start (&lt; 7 giorni di storico): i semafori usano logica semplificata fino al raggiungimento del 7° giorno utile.</div>
+
+  <footer>FMM Consulting · snapshot generato da pipeline CSV n8n → Apps Script → Cowork. Dati Meta Ads.</footer>
+</div>
 </body>
 </html>
