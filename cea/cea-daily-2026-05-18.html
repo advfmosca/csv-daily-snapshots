@@ -1,1656 +1,1111 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#1c1c1e">
-  <title>CEA — Daily Check Campagne · 18/05/2026 · v2 dati reali</title>
-  <style>
-    :root {
-      --bg: #1c1c1e; --bg-card: #2c2c2e; --bg-card-elev: #38383a;
-      --text: #f5f5f7; --text-secondary: #aeaeb2; --text-tertiary: #8e8e93; --text-muted: #636366;
-      --border: rgba(255,255,255,0.08); --border-strong: rgba(255,255,255,0.16);
-      --rosso: #ff453a; --giallo: #ffd60a; --verde: #30d158; --nero: #8e8e93; --blu: #0a84ff;
-      --bg-rosso: rgba(255,69,58,0.12); --bg-giallo: rgba(255,214,10,0.12);
-      --bg-verde: rgba(48,209,88,0.12); --bg-nero: rgba(142,142,147,0.15); --bg-blu: rgba(10,132,255,0.10);
-    }
-    * { box-sizing: border-box; }
-    body { margin:0; padding:0; background: var(--bg); color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
-      font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; min-height: 100vh; }
-    .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
-    .tab-nav { display: flex; gap: 6px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 12px;
-      border-bottom: 1px solid var(--border); }
-    .tab { padding: 8px 14px; border-radius: 8px; background: transparent; color: var(--text-tertiary);
-      font-weight: 500; font-size: 14px; cursor: pointer; white-space: nowrap; }
-    .tab.active { background: var(--blu); color: white; }
-    .tab .new { display: inline-block; margin-left: 6px; background: rgba(255,255,255,0.25);
-      padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; }
-    .page-header { display: flex; justify-content: space-between; align-items: flex-start;
-      flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
-    .page-title { font-size: 28px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.02em; }
-    .page-subtitle { color: var(--text-secondary); margin: 0; font-size: 14px; }
-    .live-badge { background: var(--bg-verde); color: var(--verde); border: 1px solid rgba(48,209,88,0.3);
-      padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 11px;
-      letter-spacing: 0.08em; text-transform: uppercase; }
-    .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px; margin-bottom: 24px; }
-    .kpi-card { background: var(--bg-card); border-radius: 14px; padding: 16px 18px;
-      border: 1px solid var(--border); }
-    .kpi-card .label { color: var(--text-tertiary); font-size: 12px; margin: 0 0 6px;
-      font-weight: 500; letter-spacing: 0.02em; text-transform: uppercase; }
-    .kpi-card .value { font-size: 28px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.02em; }
-    .kpi-card .value .small { font-size: 16px; color: var(--text-tertiary); font-weight: 500; }
-    .kpi-card .sublabel { color: var(--text-muted); font-size: 12px; margin: 0; }
-    .alert-dots { display: inline-flex; gap: 4px; margin-left: 6px; }
-    .alert-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; }
-    .legenda { display: flex; flex-wrap: wrap; gap: 18px; padding: 14px 18px; background: var(--bg-card);
-      border-radius: 12px; margin-bottom: 28px; border: 1px solid var(--border); font-size: 13px; }
-    .legenda-item { display: flex; align-items: center; gap: 8px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-    .dot.rosso { background: var(--rosso); } .dot.giallo { background: var(--giallo); }
-    .dot.verde { background: var(--verde); } .dot.nero { background: var(--nero); }
-    .section-header { margin: 28px 0 14px; display: flex; justify-content: space-between;
-      align-items: baseline; gap: 12px; flex-wrap: wrap; }
-    .section-title { font-size: 19px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
-    .section-meta { color: var(--text-tertiary); font-size: 13px; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 14px; }
-    .card { background: var(--bg-card); border-radius: 16px; padding: 18px;
-      border: 1px solid var(--border); border-top-width: 4px;
-      display: flex; flex-direction: column; gap: 10px; }
-    .card.rosso { border-top-color: var(--rosso); }
-    .card.giallo { border-top-color: var(--giallo); }
-    .card.verde { border-top-color: var(--verde); }
-    .card.nero { border-top-color: var(--nero); }
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-    .card-title { font-size: 15px; font-weight: 600; margin: 0; line-height: 1.3; letter-spacing: -0.01em; }
-    .badge { font-size: 10px; font-weight: 800; letter-spacing: 0.1em; padding: 4px 9px;
-      border-radius: 6px; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
-    .badge.rosso { background: var(--bg-rosso); color: var(--rosso); }
-    .badge.verde { background: var(--bg-verde); color: var(--verde); }
-    .card-meta { font-size: 12px; color: var(--text-tertiary); margin: 0; }
-    .campaigns-list { display: flex; flex-wrap: wrap; gap: 5px; margin: 0; }
-    .campaign-chip { font-size: 11px; background: var(--bg-blu); color: var(--blu);
-      padding: 3px 8px; border-radius: 5px; font-weight: 500; }
-    .campaign-chip.more { background: rgba(255,255,255,0.08); color: var(--text-tertiary); }
-    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px;
-      padding: 10px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .kpi-item .kpi-label { font-size: 10px; color: var(--text-tertiary); margin: 0 0 2px;
-      letter-spacing: 0.02em; text-transform: uppercase; font-weight: 500; }
-    .kpi-item .kpi-value { font-size: 15px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
-    .kpi-value .delta { font-size: 10px; margin-left: 4px; font-weight: 500; }
-    .delta.neutral { color: var(--text-muted); }
-    .action-plan { background: var(--bg-blu); border-left: 3px solid var(--blu);
-      padding: 10px 12px; border-radius: 0 8px 8px 0; font-size: 12px; line-height: 1.5; }
-    .action-plan.rosso { background: var(--bg-rosso); border-left-color: var(--rosso); }
-    .action-plan.verde { background: var(--bg-verde); border-left-color: var(--verde); }
-    .action-plan-title { font-weight: 700; font-size: 10px; letter-spacing: 0.1em;
-      text-transform: uppercase; margin: 0 0 4px; color: var(--text-secondary); }
-    .action-plan p { margin: 0; }
-    .footer { margin-top: 48px; padding: 24px; border-top: 1px solid var(--border);
-      color: var(--text-tertiary); font-size: 12px; line-height: 1.6;
-      background: var(--bg-card); border-radius: 14px; }
-    .footer p { margin: 0 0 10px; } .footer p:last-child { margin-bottom: 0; }
-    .footer strong { color: var(--text-secondary); }
-    .footer code { background: rgba(255,255,255,0.08); padding: 1px 5px;
-      border-radius: 4px; font-size: 11px; color: var(--text); }
-  </style>
+<meta charset="utf-8">
+<title>CEA — Snapshot 2026-05-18</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 32px 28px;
+  background: #1c1c1e; color: #f2f2f7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px; line-height: 1.45;
+}
+header.page-head {
+  max-width: 1600px; margin: 0 auto 28px;
+}
+.page-head h1 { margin: 0 0 8px; font-size: 28px; font-weight: 600; }
+.page-head .meta { color: #8e8e93; font-size: 14px; }
+.summary {
+  display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0 8px;
+}
+.summary .pill {
+  background: #2c2c2e; padding: 10px 16px; border-radius: 10px;
+  border: 1px solid #3a3a3c;
+}
+.summary .pill strong { display: block; font-size: 18px; }
+.summary .pill span { color: #8e8e93; font-size: 12px; }
+.grid {
+  max-width: 1600px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: #2c2c2e; border-radius: 12px;
+  padding: 18px; border: 1px solid #3a3a3c;
+}
+.card-head {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  margin-bottom: 14px;
+}
+.card-head h2 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+.card-head .sub { color: #8e8e93; font-size: 12px; }
+.badge {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  color: #000; padding: 5px 10px; border-radius: 999px;
+  white-space: nowrap;
+}
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  margin-bottom: 12px;
+}
+.kpi {
+  background: rgba(255,255,255,0.04); padding: 8px 10px; border-radius: 8px;
+}
+.kpi-label { color: #8e8e93; font-size: 10px; text-transform: uppercase; letter-spacing: 0.3px; }
+.kpi-val { font-size: 15px; font-weight: 600; margin-top: 2px; }
+.campagne {
+  color: #8e8e93; font-size: 11px; margin-bottom: 12px;
+  line-height: 1.4;
+}
+.campagne strong { color: #f2f2f7; font-weight: 600; }
+.action {
+  padding: 10px 12px; border-radius: 8px; font-size: 12px; line-height: 1.5;
+}
+footer {
+  max-width: 1600px; margin: 28px auto 0; color: #8e8e93;
+  font-size: 11px; padding-top: 16px; border-top: 1px solid #3a3a3c;
+}
+</style>
 </head>
 <body>
-  <div class="container">
-
-    <nav class="tab-nav">
-      <div class="tab">Overview</div>
-      <div class="tab">Spending</div>
-      <div class="tab">BeeFamily</div>
-      <div class="tab">AGHC</div>
-      <div class="tab">Med &amp; Tech</div>
-      <div class="tab active">CEA <span class="new">DATI REALI</span></div>
-    </nav>
-
-    <header class="page-header">
-      <div>
-        <h1 class="page-title">CEA — Daily Check Campagne</h1>
-        <p class="page-subtitle">Snapshot del 18/05/2026 · dati reali da <code>cea_2026-05-18.csv</code> · Centro Estetico Automatico Srl</p>
-      </div>
-      <div class="live-badge">✓ Dati reali</div>
-    </header>
-
-    <section class="kpi-row">
-      <div class="kpi-card">
-        <p class="label">Clienti attivi ieri</p>
-        <p class="value">46</p>
-        <p class="sublabel">tutti con spending &gt; 0 €</p>
-      </div>
-      <div class="kpi-card">
-        <p class="label">Spending ieri</p>
-        <p class="value">2366.02 €</p>
-        <p class="sublabel">Meta Ads · su 66 ad-set</p>
-      </div>
-      <div class="kpi-card">
-        <p class="label">Lead totali</p>
-        <p class="value">72</p>
-        <p class="sublabel">CPL aggregato 32.86 €</p>
-      </div>
-      <div class="kpi-card">
-        <p class="label">Alert</p>
-        <p class="value">17 <span class="alert-dots"><span class="alert-dot" style="background:var(--rosso)"></span></span></p>
-        <p class="sublabel">clienti con 0 lead</p>
-      </div>
-    </section>
-
-    <div class="legenda">
-      <div class="legenda-item"><span class="dot verde"></span><strong>VERDE</strong>
-        <span>— lead generati (cold start, no storico)</span></div>
-      <div class="legenda-item"><span class="dot rosso"></span><strong>ROSSO</strong>
-        <span>— 0 lead ieri</span></div>
-      <div class="legenda-item"><span class="dot giallo"></span><strong>GIALLO</strong>
-        <span>— dal giorno 8: CPL +entro 50% vs media 7gg</span></div>
-      <div class="legenda-item"><span class="dot nero"></span><strong>NERO</strong>
-        <span>— dal giorno 8: nessuna spesa</span></div>
+<header class="page-head">
+  <h1>CEA — Centro Estetico Automatico</h1>
+  <div class="meta">Snapshot Meta Ads · dati del <strong style="color:#f2f2f7">Lunedì 18 maggio 2026</strong></div>
+  
+    <div class="summary">
+      <div class="pill"><strong>46</strong><span>clienti</span></div>
+      <div class="pill"><strong>2366.02 €</strong><span>spesa totale</span></div>
+      <div class="pill"><strong>72</strong><span>lead totali</span></div>
+      <div class="pill"><strong>32.86 €</strong><span>CPL medio</span></div>
+      <div class="pill" style="border-left:4px solid #ff453a;"><strong>17</strong><span>alert rossi</span></div>
+      <div class="pill" style="border-left:4px solid #ffd60a;"><strong>0</strong><span>gialli</span></div>
+      <div class="pill" style="border-left:4px solid #30d158;"><strong>29</strong><span>verdi</span></div>
     </div>
+    
+</header>
+<main class="grid">
 
-    <div class="section-header">
-      <h2 class="section-title">Card per cliente</h2>
-      <span class="section-meta">46 clienti · 66 ad-set · 17 alert ROSSO · 29 VERDE</span>
-    </div>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Baldan Group USA</h2>
+          <div class="sub">1 campagna · 3 ad-set</div>
+        </div>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">1317.63 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">19</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">69.35 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> BALDAN - INFRA | US | TOF | INFRABALDAN | LEADGEN</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-    <div class="cards">
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>L&#x27;estetica che ti cambia la vita - ITALIA</h2>
+          <div class="sub">3 campagne · 4 ad-set</div>
+        </div>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">100.59 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">50.30 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 2 Trattamenti Rimodellanti a soli 97€, 2 sedute rimodellanti a 97€, Consulenza + Trattamento a soli 67€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Baldan Group USA</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Exthetyc</h2>
+          <div class="sub">2 campagne · 2 ad-set</div>
         </div>
-        <p class="card-meta">3 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">BALDAN - INFRA | US | TOF | INFRABALDAN | LEADGEN</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">1317.63 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">19</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">69.35 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 19 lead a 69.35 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">55.35 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">55.35 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Prova trattamento corpo Tcl a 37€, Seduta Total Body a 68€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">L&#x27;estetica che ti cambia la vita - ITALIA</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV Linea Più Casale</h2>
+          <div class="sub">2 campagne · 2 ad-set</div>
         </div>
-        <p class="card-meta">4 ad-set su 3 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">2 sedute rimodellanti a 97€</span>
-<span class="campaign-chip">2 Trattamenti Rimodellanti a soli 97€</span>
-<span class="campaign-chip">Consulenza + Trattamento a soli 67€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">100.59 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">50.29 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 50.29 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">46.65 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Consulenza Specialistica + Trattamento a soli 79€, Trattamento Viso + Prova T-Shape a 117€</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 46.65 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Exthetyc</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Dott.ssa Orsola Bruno AP</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">2 ad-set su 2 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">Seduta Total Body a 68€</span>
-<span class="campaign-chip">Prova trattamento corpo Tcl a 37€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">55.35 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">55.35 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 55.35 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">46.64 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Remarketing - Ebook - Best - 11.05</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 46.64 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV Linea Più Casale</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Tyla Institute Estetica</h2>
+          <div class="sub">4 campagne · 4 ad-set</div>
         </div>
-        <p class="card-meta">2 ad-set su 2 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">Trattamento Viso + Prova T-Shape a 117€</span>
-<span class="campaign-chip">Consulenza Specialistica + Trattamento a soli 79€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">46.65 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 46.65 € su 2 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">39.33 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">19.66 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 6 Incontri a 670€ (invece di 1200€)., Post di Instagram: La nuova frontiera nella lotta..., Post: &quot;Con il passare degli anni cambia solo l’età… o...&quot;, Post: &quot;La bilancia non racconta davvero chi sei. È solo...&quot;</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Dott.ssa Orsola Bruno AP</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Brera13 Beauty</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Remarketing - Ebook - Best - 11.05</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">46.64 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 46.64 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">33.92 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">16.96 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 2 TRATTAMENTI CORPO A 97€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Tyla Institute Estetica</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV Visamour</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">4 ad-set su 4 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">Post: Con il passare degli anni cambia solo l&#x27;età …</span>
-<span class="campaign-chip">6 Incontri a 670€ (invece di 1200€).</span>
-<span class="campaign-chip">Post: La bilancia non racconta davvero chi sei. È …</span>
-<span class="campaign-chip more">+1 altre</span></div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">39.33 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">19.66 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 19.66 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">31.22 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">15.61 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Face Clinic 67€ - maggio</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Brera13 Beauty</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV SANITAL ECO STORE</h2>
+          <div class="sub">2 campagne · 2 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">2 TRATTAMENTI CORPO A 97€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">33.92 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">16.96 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 16.96 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">31.16 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 02/02 - FE corpo uomo/donna - COLD - ABO, 05/04/26 - corpo Nutriestetica - COLD - ABO</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 31.16 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV Visamour</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Farmacia Martelletto</h2>
+          <div class="sub">2 campagne · 2 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Face Clinic 67€ - maggio</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">31.22 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">15.61 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 15.61 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">30.27 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">30.27 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Maggio 2026, Trattamento Prova a 47€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV SANITAL ECO STORE</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Baldan Intelligence</h2>
+          <div class="sub">2 campagne · 2 ad-set</div>
         </div>
-        <p class="card-meta">2 ad-set su 2 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">05/04/26 - corpo Nutriestetica - COLD - ABO</span>
-<span class="campaign-chip">02/02 - FE corpo uomo/donna - COLD - ABO</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">31.16 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 31.16 € su 2 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">30.07 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> AURA - Awareness - AWA, AURA - Awareness - INT</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 30.07 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Farmacia Martelletto</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Oasi di Nadia</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">2 ad-set su 2 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">Trattamento Prova a 47€</span>
-<span class="campaign-chip">Maggio 2026</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">30.27 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">30.27 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 30.27 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">27.19 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">13.60 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Prova trattamento tshape2 a 59€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Baldan Intelligence</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Dermal Center</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">2 ad-set su 2 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">AURA - Awareness - AWA</span>
-<span class="campaign-chip">AURA - Awareness - INT</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">30.07 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 30.07 € su 2 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">26.89 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">3</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">8.96 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Primo trattamento prova a 39€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Oasi di Nadia</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Beauty Point Srl</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Prova trattamento tshape2 a 59€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">27.19 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">13.60 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 13.60 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">26.25 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 2 sedute super rimodellanti a 157€</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 26.25 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Dermal Center</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Charme estetica benessere</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Primo trattamento prova a 39€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">26.89 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">3</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">8.96 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 3 lead a 8.96 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">24.88 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> un mese di trattamenti a 340€</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 24.88 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Beauty Point Srl</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV LINEA PERFETTA</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">2 sedute super rimodellanti a 157€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">26.25 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 26.25 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">24.28 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">24.28 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 2 trattamenti corpo a 147€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Charme estetica benessere</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Black Queen Beauty Art</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">un mese di trattamenti a 340€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">24.88 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 24.88 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">23.81 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">23.81 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Lead Generations terza fase</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV LINEA PERFETTA</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Leuce - Medicina Estetica</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">2 trattamenti corpo a 147€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">24.28 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">24.28 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 24.28 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">23.73 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">23.73 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Welcome rimodellami a 89€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Black Queen Beauty Art</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Mudra Centro Benessere</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Lead Generations terza fase</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">23.81 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">23.81 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 23.81 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">23.64 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">23.64 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Consulenza + priva gratuita +.30% di sconto sui percorsi corpo</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Leuce - Medicina Estetica</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Farmacia Padre Pio</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Welcome rimodellami a 89€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">23.73 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">23.73 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 23.73 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">23.54 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">11.77 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 3 sedute corpo in 21 giorni a 297€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Mudra Centro Benessere</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>B-ewolution by Beauty Way</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Consulenza + priva gratuita +.30% di sconto sui pe…</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">23.64 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">23.64 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 23.64 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">21.98 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">10.99 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Prova tecnologia a 57€ + consulenza</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Farmacia Padre Pio</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Farmacia Gagliardelli</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">3 sedute corpo in 21 giorni a 297€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">23.54 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">11.77 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 11.77 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">21.58 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">10.79 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Prova T-Shape2 a 49€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">B-ewolution by Beauty Way</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Farmacia Di Gennaro</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Prova tecnologia a 57€ + consulenza</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">21.98 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">10.99 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 10.99 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">20.65 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">4</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">5.16 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Trattamento Localizzato + Diagnosi Inclusa a 49€.</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Farmacia Gagliardelli</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>SkinMedic Lecco new</h2>
+          <div class="sub">2 campagne · 2 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Prova T-Shape2 a 49€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">21.58 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">10.79 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 10.79 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">20.59 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">3</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">6.86 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> [SV] - CORPO, [SV] - LeadGen_PMU_18/05</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Farmacia Di Gennaro</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV Maison Kuku</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Trattamento Localizzato + Diagnosi Inclusa a 49€.</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">20.65 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">4</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">5.16 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 4 lead a 5.16 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">20.58 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">20.58 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 1 trattamento corpo a 67€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">SkinMedic Lecco new</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV ARTESTETICA</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">2 ad-set su 2 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">[SV] - LeadGen_PMU_18/05</span>
-<span class="campaign-chip">[SV] - CORPO</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">20.59 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">3</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">6.86 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 3 lead a 6.86 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">19.99 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Trattamento con radiofrequenza a 57€</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 19.99 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV Maison Kuku</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>SALUS 2024</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">1 trattamento corpo a 67€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">20.58 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">20.58 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 20.58 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">19.09 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">3</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">6.36 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> un mese di trattamenti corpo a 437€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV ARTESTETICA</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Atelier Fiumara</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Trattamento con radiofrequenza a 57€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">19.99 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 19.99 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">18.75 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Prova tecnologia a 39€</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 18.75 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">SALUS 2024</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV Solelù</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">un mese di trattamenti corpo a 437€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">19.09 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">3</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">6.36 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 3 lead a 6.36 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">18.05 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">18.05 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> DCD_Taranto+Grottaglie_3ESC poi 2ESC</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Atelier Fiumara</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Laboratorio Estetico Catia</h2>
+          <div class="sub">1 campagna · 2 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Prova tecnologia a 39€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">18.75 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 18.75 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">17.86 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">17.86 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> [SV] Laboratorio Estetico - Lead Gen</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV Solelù</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Centro Estetico Enrica</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">DCD_Taranto+Grottaglie_3ESC poi 2ESC</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">18.05 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">18.05 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 18.05 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">17.71 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">3</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">5.90 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> GIB | Lead Gen | Perfect Shape</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Laboratorio Estetico Catia</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Body Laser</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">2 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">[SV] Laboratorio Estetico - Lead Gen</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">17.86 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">17.86 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 17.86 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">17.09 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">4</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">4.27 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> CBO | Lead Gen | 197 euro</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Centro Estetico Enrica</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Riflesso Evolution</h2>
+          <div class="sub">2 campagne · 3 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">GIB | Lead Gen | Perfect Shape</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">17.71 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">3</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">5.90 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 3 lead a 5.90 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">16.71 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">16.71 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> [LG] Manuela Shala Lead Ads 29/04/2026, [LG] Manuela Shala broad 29/04/2026</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Body Laser</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Nicola Cossater Beauty</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">CBO | Lead Gen | 197 euro</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">17.09 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">4</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">4.27 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 4 lead a 4.27 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">15.70 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Instagram post: Come scegliere il centro di...</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 15.70 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Riflesso Evolution</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Nuove Sensazioni</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">3 ad-set su 2 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">[LG] Manuela Shala broad 29/04/2026</span>
-<span class="campaign-chip">[LG] Manuela Shala Lead Ads 29/04/2026</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">16.71 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">16.71 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 16.71 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">14.64 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">14.64 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> 1 trattamento corpo a 67€</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Nicola Cossater Beauty</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Andreea Francu Renzo Gestione</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Instagram post: Come scegliere il centro di...</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">15.70 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 15.70 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">14.51 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">1</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">14.51 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Corso Falconara marittima 7/8 Giugno con foto new renzo</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Nuove Sensazioni</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Pietrabianca</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">1 trattamento corpo a 67€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">14.64 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">14.64 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 14.64 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">14.36 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">3</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">4.79 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> OTB | LEAD GEN</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Andreea Francu Renzo Gestione</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Centro estetico natura</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Corso Falconara marittima 7/8 Giugno con foto new …</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">14.51 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">1</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">14.51 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 1 lead a 14.51 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">13.72 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> INFRATERMIK</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 13.72 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Pietrabianca</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Donnauomo</h2>
+          <div class="sub">3 campagne · 4 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">OTB | LEAD GEN</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">14.36 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">3</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">4.79 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 3 lead a 4.79 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">11.53 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> PE_ABO_LeadGen_Corpo_&quot;Anti Aging 360 Corpo&quot;_09.01, PE_ABO_LeadGen_Recruiting_&quot;Estetista&quot;_30.04, PE_ABO_LeadGen_Viso_&quot;Anti Aging 360 Viso&quot;_08.04</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 11.53 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Centro estetico natura</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV - Centro Benessere Polverino</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">INFRATERMIK</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">13.72 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 13.72 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">9.73 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> [SV] - Trattamento Infrabaldan + T-Shape</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 9.73 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Donnauomo</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV Centro Estetico Eden</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">4 ad-set su 3 campagne</p>
-        <div class="campaigns-list"><span class="campaign-chip">PE_ABO_LeadGen_Recruiting_Estetista_30.04</span>
-<span class="campaign-chip">PE_ABO_LeadGen_Viso_Anti Aging 360 Viso_08.04</span>
-<span class="campaign-chip">PE_ABO_LeadGen_Corpo_Anti Aging 360 Corpo_09.01</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">11.53 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 11.53 € su 4 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">8.07 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Trattamento corpo di prova a 49€</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 8.07 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV - Centro Benessere Polverino</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #30d158;">
+      <header class="card-head">
+        <div>
+          <h2>Eternity LB - Account pubblicitario</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">[SV] - Trattamento Infrabaldan + T-Shape</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">9.73 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 9.73 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#30d158;">VERDE · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">6.31 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">2</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">3.15 €</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Nuova campagna Contatti wonder 2</div>
+      <div class="action" style="background: color-mix(in srgb, #30d158 12%, #2c2c2e); border-left:3px solid #30d158;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). Lead acquisiti, performance da consolidare. Dal giorno 8 logica completa con CPL media 7gg.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV Centro Estetico Eden</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV CENTRO ESTETICO AMBRA</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Trattamento corpo di prova a 49€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">8.07 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 8.07 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">6.13 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> [LEAD] Welcome experience 59€</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 6.13 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card verde">
-        <div class="card-header">
-          <h3 class="card-title">Eternity LB - Account pubblicitario</h3>
-          <span class="badge verde">Verde</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Fiori di loto</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Nuova campagna Contatti wonder 2</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">6.31 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">2</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">3.15 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan verde">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Setup attivo con 2 lead a 3.15 € medio. Monitorare per accumulare baseline storica nei prossimi 7 giorni — dal giorno 8 i semafori avranno il confronto con media 7gg per identificare drift.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">5.46 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> LASER PELI - PROVA GRATUITA - DM - MAGGIO campagna Interazioni</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 5.46 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV CENTRO ESTETICO AMBRA</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>Beauty Art</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">[LEAD] Welcome experience 59€</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">6.13 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 6.13 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">5.00 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Contatti 2026 - Laser</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 5.00 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Fiori di loto</h3>
-          <span class="badge rosso">Rosso</span>
+    <article class="card" style="border-left:5px solid #ff453a;">
+      <header class="card-head">
+        <div>
+          <h2>ADV Slim&#x27;Up</h2>
+          <div class="sub">1 campagna · 1 ad-set</div>
         </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">LASER PELI - PROVA GRATUITA - DM - MAGGIO campagna…</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">5.46 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 5.46 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
+        <span class="badge" style="background:#ff453a;">ROSSO · cold start</span>
+      </header>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="kpi-label">Spesa</div><div class="kpi-val">3.19 €</div></div>
+        <div class="kpi"><div class="kpi-label">Lead</div><div class="kpi-val">0</div></div>
+        <div class="kpi"><div class="kpi-label">CPL ieri</div><div class="kpi-val">—</div></div>
+        <div class="kpi"><div class="kpi-label">CPL media 7gg</div><div class="kpi-val">— cold start</div></div>
+        
+      </div>
+      <div class='campagne'><strong>Campagne attive:</strong> Laser | Cold | Modulo | Lead | ABO | 13/01/2026</div>
+      <div class="action" style="background: color-mix(in srgb, #ff453a 12%, #2c2c2e); border-left:3px solid #ff453a;">
+        <strong>Azione consigliata:</strong> Cliente in cold start (giorno 0/7). 0 lead nonostante spesa di 3.19 €. Rivedere creatività, headline e modulo. Da giorno 8 i semafori useranno la media 7gg per confronto.
+      </div>
+    </article>
+    
+</main>
 
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">Beauty Art</h3>
-          <span class="badge rosso">Rosso</span>
-        </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Contatti 2026 - Laser</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">5.00 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 5.00 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
-
-      <article class="card rosso">
-        <div class="card-header">
-          <h3 class="card-title">ADV Slim&#x27;Up</h3>
-          <span class="badge rosso">Rosso</span>
-        </div>
-        <p class="card-meta">1 ad-set su 1 campagna</p>
-        <div class="campaigns-list"><span class="campaign-chip">Laser | Cold | Modulo | Lead | ABO | 13/01/2026</span>
-</div>
-        <div class="kpi-grid">
-          <div class="kpi-item">
-            <p class="kpi-label">Spending ieri</p>
-            <p class="kpi-value">3.19 €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">Lead ieri</p>
-            <p class="kpi-value">0</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL aggregato</p>
-            <p class="kpi-value">— €</p>
-          </div>
-          <div class="kpi-item">
-            <p class="kpi-label">CPL media 7gg</p>
-            <p class="kpi-value">— <span class="delta neutral">cold start</span></p>
-          </div>
-        </div>
-        <div class="action-plan rosso">
-          <p class="action-plan-title">Azione consigliata</p>
-          <p>Spese 3.19 € su 1 ad-set senza generare lead. Verificare creatività e copy del modulo Lead Ad. Se il trend persiste anche domani: refresh completo della creatività + revisione targeting.</p>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="footer">
-      <p><strong>✓ v2 — Dati reali del 18/05/2026.</strong> CSV letto da Drive (<code>1mJSpnY_x51BPTlD0DpawuSwhiem6iZ1t/cea_2026-05-18.csv</code>), 66 ad-set aggregati in 46 card-cliente. Sort by spending desc. KPI calcolati direttamente dai dati Meta Ads del giorno precedente.</p>
-      <p><strong>⚠ Cold start logic semafori:</strong> il CSV fornisce solo lo snapshot di ieri, non lo storico. Per i primi 7 giorni i semafori usano la regola semplificata <em>(0 lead = ROSSO, lead &gt; 0 = VERDE)</em>. Dal giorno 8 in poi, quando lo scheduled task avrà accumulato lo storico CPL nei file <code>snapshots/&lt;data&gt;.json</code> su GitHub, i semafori useranno la stessa logica della tab Med &amp; Tech (VERDE in linea o sotto media / GIALLO entro +50% / ROSSO 0 lead o CPL +50% / NERO no spend).</p>
-      <p><strong>Dati intraday non disponibili</strong> dal CSV (lead OGGI alle 15:59, frequency 7gg, trend orario). Per replicare al 100% la tab Med &amp; Tech servirebbe un secondo input da Windsor.ai oppure un secondo CSV intraday lato n8n. Per ora la tab CEA mostra solo lo snapshot completo del giorno precedente.</p>
-      <p><strong>Snapshot generato dal CSV <code>cea_2026-05-18.csv</code></strong> · Forwarded via Apps Script trigger 08:00-09:00 · Drive folder <code>Dashboard FMM/CSV Inputs/</code> · Pronto per ingestion automatica dallo scheduled task <code>dashboard-csv-update</code></p>
-    </div>
-
-  </div>
+    <footer>
+      ⏳ <strong>Cold start in corso:</strong> alcuni clienti non hanno ancora 7 giorni di storico.
+      I semafori per quei clienti seguono logica semplificata (VERDE = lead > 0, ROSSO = 0 lead).
+      Dal giorno 8 i semafori utilizzeranno il confronto CPL vs media 7gg.<br>
+      Generato automaticamente il 19/05/2026 07:54 · Snapshot relativo ai dati del Lunedì 18 maggio 2026.
+    </footer>
+    
 </body>
 </html>
