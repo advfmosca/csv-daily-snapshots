@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CEA — Centro Estetico Automatico — 23 maggio 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #1c1c1e; color: #f2f2f7; padding: 24px 16px; line-height: 1.45; }
+  .wrap { max-width: 1400px; margin: 0 auto; }
+  header { margin-bottom: 24px; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { color: #8e8e93; font-size: 15px; }
+  .totals { background: #2c2c2e; border-radius: 14px; padding: 18px 20px; margin-bottom: 24px;
+    display: flex; gap: 28px; flex-wrap: wrap; }
+  .totals div { font-size: 14px; color: #8e8e93; }
+  .totals strong { display: block; color: #f2f2f7; font-size: 22px; font-weight: 600; margin-top: 2px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+  .card { background: #2c2c2e; border-radius: 14px; padding: 18px; border-left: 4px solid transparent;
+    display: flex; flex-direction: column; gap: 12px; }
+  .card.rosso  { border-left-color: #ff453a; }
+  .card.giallo { border-left-color: #ffd60a; }
+  .card.verde  { border-left-color: #30d158; }
+  .card.nero   { border-left-color: #8e8e93; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .name { font-size: 16px; font-weight: 600; word-break: break-word; }
+  .meta { color: #8e8e93; font-size: 12px; margin-top: 4px; }
+  .badge { padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+  .badge.rosso  { background: #ff453a; color: #fff; }
+  .badge.giallo { background: #ffd60a; color: #1c1c1e; }
+  .badge.verde  { background: #30d158; color: #1c1c1e; }
+  .badge.nero   { background: #8e8e93; color: #fff; }
+  .kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .kpi div { background: #1c1c1e; border-radius: 8px; padding: 8px; }
+  .kpi .lab { font-size: 10px; color: #8e8e93; text-transform: uppercase; letter-spacing: 0.4px; }
+  .kpi .val { font-size: 15px; font-weight: 600; margin-top: 2px; }
+  .action { background: rgba(10, 132, 255, 0.12); border-left: 3px solid #0a84ff;
+    padding: 10px 12px; border-radius: 6px; font-size: 13px; color: #f2f2f7; }
+  footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #3a3a3c;
+    color: #8e8e93; font-size: 12px; text-align: center; }
+  @media (max-width: 500px) { .kpi { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>CEA — Centro Estetico Automatico</h1>
+    <div class="subtitle">Snapshot giornaliero clienti estetici Meta Ads · 23 maggio 2026</div>
+  </header>
+  <div class="totals">
+  <div>Clienti<strong>42</strong></div>
+  <div>Spend totale<strong>2393.18 €</strong></div>
+  <div>Lead totali<strong>93</strong></div>
+  <div>Alert (rossi)<strong>19</strong></div>
+</div>
+  <div class="grid"><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Baldan Group USA</div>
+          <div class="meta">2 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">1411.51 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">20</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">70.58 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">64.92 €</div></div>
+      </div>
+      <div class="action">CPL €70.58 in linea o sotto media 7gg (€64.92). Valutare scaling se il volume è basso.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">L'estetica che ti cambia la vita - ITALIA</div>
+          <div class="meta">4 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">88.80 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">8</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">11.10 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">38.92 €</div></div>
+      </div>
+      <div class="action">CPL €11.10 in linea o sotto media 7gg (€38.92). Valutare scaling se il volume è basso.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Dott.ssa Orsola Bruno AP</div>
+          <div class="meta">2 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">87.02 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">Spesa €87.02 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card giallo">
+      <div class="card-head">
+        <div>
+          <div class="name">Farmacia Di Gennaro</div>
+          <div class="meta">2 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge giallo">ATTENZIONE</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">45.23 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">15.08 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">10.22 €</div></div>
+      </div>
+      <div class="action">CPL €15.08 leggermente sopra media (+47% vs €10.22): monitorare, refresh solo se domani peggiora.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Exthetyc</div>
+          <div class="meta">2 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">42.88 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">14.29 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">15.63 €</div></div>
+      </div>
+      <div class="action">CPL €14.29 in linea o sotto media 7gg (€15.63). Valutare scaling se il volume è basso.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Donnauomo</div>
+          <div class="meta">2 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">34.27 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">5.96 €</div></div>
+      </div>
+      <div class="action">Spesa €34.27 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Tyla Institute Estetica</div>
+          <div class="meta">5 ad-set · 2/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">34.10 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">21.70 €</div></div>
+      </div>
+      <div class="action">Spesa €34.10 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Nuove Sensazioni</div>
+          <div class="meta">1 ad-set · 2/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">32.42 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">32.42 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">21.16 €</div></div>
+      </div>
+      <div class="action">CPL €32.42 sopra +50% vs media 7gg €21.16. Refresh creativo o pausa.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV Esthetique</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">31.92 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">23.97 €</div></div>
+      </div>
+      <div class="action">Spesa €31.92 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Farmacia Martelletto</div>
+          <div class="meta">2 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">30.08 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">30.08 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">18.21 €</div></div>
+      </div>
+      <div class="action">CPL €30.08 sopra +50% vs media 7gg €18.21. Refresh creativo o pausa.</div>
+    </div><div class="card giallo">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV CENTRO BENESSERE COCCOLE</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge giallo">ATTENZIONE</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">29.21 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">29.21 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">25.63 €</div></div>
+      </div>
+      <div class="action">CPL €29.21 leggermente sopra media (+13% vs €25.63): monitorare, refresh solo se domani peggiora.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV SANITAL ECO STORE</div>
+          <div class="meta">1 ad-set · 2/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">29.21 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">14.61 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">7.38 €</div></div>
+      </div>
+      <div class="action">CPL €14.61 sopra +50% vs media 7gg €7.38. Refresh creativo o pausa.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Brera13 Beauty</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">28.05 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">9.35 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">14.85 €</div></div>
+      </div>
+      <div class="action">CPL €9.35 in linea o sotto media 7gg (€14.85). Valutare scaling se il volume è basso.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Charme estetica benessere</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">25.80 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">25.80 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">CPL €25.80 (storico non disponibile). Monitorare nei prossimi giorni.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV Linea Più Casale</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">25.40 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">25.40 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">CPL €25.40 (storico non disponibile). Monitorare nei prossimi giorni.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Erresse Esthetique Ads</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">24.57 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">4</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">6.14 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">CPL €6.14 (storico non disponibile). Monitorare nei prossimi giorni.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Farmacia Padre Pio</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">23.95 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">11.97 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">12.56 €</div></div>
+      </div>
+      <div class="action">CPL €11.97 in linea o sotto media 7gg (€12.56). Valutare scaling se il volume è basso.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV LINEA PERFETTA</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">23.10 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">24.28 €</div></div>
+      </div>
+      <div class="action">Spesa €23.10 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV FARMACIA CLEMENTE</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">22.89 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">6</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">3.81 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">5.93 €</div></div>
+      </div>
+      <div class="action">CPL €3.81 in linea o sotto media 7gg (€5.93). Valutare scaling se il volume è basso.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Estetica Rosy</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">22.15 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">22.15 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">CPL €22.15 (storico non disponibile). Monitorare nei prossimi giorni.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Centro Estetico Enrica</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">21.91 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">10.96 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">6.33 €</div></div>
+      </div>
+      <div class="action">CPL €10.96 sopra +50% vs media 7gg €6.33. Refresh creativo o pausa.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV Visamour</div>
+          <div class="meta">1 ad-set · 2/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">21.59 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">4</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">5.40 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">12.69 €</div></div>
+      </div>
+      <div class="action">CPL €5.40 in linea o sotto media 7gg (€12.69). Valutare scaling se il volume è basso.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV Maison Kuku</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">21.35 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">9.80 €</div></div>
+      </div>
+      <div class="action">Spesa €21.35 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card giallo">
+      <div class="card-head">
+        <div>
+          <div class="name">Corporea Wellness Experience</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge giallo">ATTENZIONE</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">20.59 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">10.29 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">8.30 €</div></div>
+      </div>
+      <div class="action">CPL €10.29 leggermente sopra media (+23% vs €8.30): monitorare, refresh solo se domani peggiora.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Body Laser</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">20.48 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">5</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">4.10 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">2.15 €</div></div>
+      </div>
+      <div class="action">CPL €4.10 sopra +50% vs media 7gg €2.15. Refresh creativo o pausa.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Black Queen Beauty Art</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">20.00 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">10.00 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">10.84 €</div></div>
+      </div>
+      <div class="action">CPL €10.00 in linea o sotto media 7gg (€10.84). Valutare scaling se il volume è basso.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Andreea Francu Renzo Gestione</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">17.26 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">14.51 €</div></div>
+      </div>
+      <div class="action">Spesa €17.26 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Centro Mességué ADS 2025</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">16.94 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">Spesa €16.94 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV Solelù</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">15.01 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">9.49 €</div></div>
+      </div>
+      <div class="action">Spesa €15.01 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Mercato Digital</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">14.62 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">14.62 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">6.90 €</div></div>
+      </div>
+      <div class="action">CPL €14.62 sopra +50% vs media 7gg €6.90. Refresh creativo o pausa.</div>
+    </div><div class="card giallo">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Atelier Fiumara</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge giallo">ATTENZIONE</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">13.47 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">13.47 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">11.27 €</div></div>
+      </div>
+      <div class="action">CPL €13.47 leggermente sopra media (+19% vs €11.27): monitorare, refresh solo se domani peggiora.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Pietrabianca</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">13.24 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">4.41 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">4.42 €</div></div>
+      </div>
+      <div class="action">CPL €4.41 in linea o sotto media 7gg (€4.42). Valutare scaling se il volume è basso.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Fatima Nail Studio</div>
+          <div class="meta">1 ad-set · 2/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">12.15 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">4</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">3.04 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">3.81 €</div></div>
+      </div>
+      <div class="action">CPL €3.04 in linea o sotto media 7gg (€3.81). Valutare scaling se il volume è basso.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Riflesso Evolution</div>
+          <div class="meta">2 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">11.05 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">4</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">2.76 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">16.71 €</div></div>
+      </div>
+      <div class="action">CPL €2.76 in linea o sotto media 7gg (€16.71). Valutare scaling se il volume è basso.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV Slim'Up</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">10.33 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">10.05 €</div></div>
+      </div>
+      <div class="action">Spesa €10.33 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV - Centro Benessere Polverino</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">10.33 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">5.17 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">4.86 €</div></div>
+      </div>
+      <div class="action">CPL €5.17 in linea o sotto media 7gg (€4.86). Valutare scaling se il volume è basso.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Beauty Art</div>
+          <div class="meta">4 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">9.74 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">9.74 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">CPL €9.74 (storico non disponibile). Monitorare nei prossimi giorni.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Centro estetico natura</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">8.45 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">10.54 €</div></div>
+      </div>
+      <div class="action">Spesa €8.45 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">ADV CENTRO ESTETICO AMBRA</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">7.73 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">Spesa €7.73 senza lead. Pausa o refresh creativo + audience.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Urban Fitness Cantù</div>
+          <div class="meta">2 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">7.26 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">7.26 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">2.74 €</div></div>
+      </div>
+      <div class="action">CPL €7.26 sopra +50% vs media 7gg €2.74. Refresh creativo o pausa.</div>
+    </div><div class="card nero">
+      <div class="card-head">
+        <div>
+          <div class="name">Eternity LB - Account pubblicitario</div>
+          <div class="meta">1 ad-set · 2/7 gg storico</div>
+        </div>
+        <span class="badge nero">INFO</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">3.70 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">4</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">0.93 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">3.61 €</div></div>
+      </div>
+      <div class="action">Spesa giornaliera bassa (<5 €): dato non significativo.</div>
+    </div><div class="card nero">
+      <div class="card-head">
+        <div>
+          <div class="name">aguaviva adv</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge nero">INFO</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">3.42 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">Spesa giornaliera bassa (<5 €): dato non significativo.</div>
+    </div></div>
+  <footer>Generato automaticamente da Cowork CSV Automation · fonte: email project@cea.management</footer>
+</div>
+</body>
+</html>
