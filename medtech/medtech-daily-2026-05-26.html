@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MED & TECH — Open Day — 26 maggio 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #1c1c1e; color: #f2f2f7; padding: 24px 16px; line-height: 1.45; }
+  .wrap { max-width: 1400px; margin: 0 auto; }
+  header { margin-bottom: 24px; }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  .subtitle { color: #8e8e93; font-size: 15px; }
+  .totals { background: #2c2c2e; border-radius: 14px; padding: 18px 20px; margin-bottom: 24px;
+    display: flex; gap: 28px; flex-wrap: wrap; }
+  .totals div { font-size: 14px; color: #8e8e93; }
+  .totals strong { display: block; color: #f2f2f7; font-size: 22px; font-weight: 600; margin-top: 2px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
+  .card { background: #2c2c2e; border-radius: 14px; padding: 18px; border-left: 4px solid transparent;
+    display: flex; flex-direction: column; gap: 12px; }
+  .card.rosso  { border-left-color: #ff453a; }
+  .card.giallo { border-left-color: #ffd60a; }
+  .card.verde  { border-left-color: #30d158; }
+  .card.nero   { border-left-color: #8e8e93; }
+  .card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .name { font-size: 16px; font-weight: 600; word-break: break-word; }
+  .meta { color: #8e8e93; font-size: 12px; margin-top: 4px; }
+  .badge { padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+  .badge.rosso  { background: #ff453a; color: #1c1c1e; }
+  .badge.giallo { background: #ffd60a; color: #1c1c1e; }
+  .badge.verde  { background: #30d158; color: #1c1c1e; }
+  .badge.nero   { background: #8e8e93; color: #1c1c1e; }
+  .kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .kpi .lab { font-size: 11px; color: #8e8e93; text-transform: uppercase; letter-spacing: 0.5px; }
+  .kpi .val { font-size: 15px; font-weight: 600; margin-top: 2px; }
+  .action { font-size: 13px; color: #c7c7cc; background: #1c1c1e; padding: 10px 12px; border-radius: 8px; }
+  footer { margin-top: 32px; text-align: center; color: #6e6e73; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>MED & TECH — Open Day</h1>
+    <div class="subtitle">Snapshot del 26 maggio 2026 · fonte CSV Apps Script</div>
+  </header>
+  <div class="totals">
+    <div>Account attivi<strong>15</strong></div>
+    <div>Spesa totale<strong>246,36 €</strong></div>
+    <div>Lead totali<strong>37</strong></div>
+    <div>CPL medio<strong>6,66 €</strong></div>
+    <div>Rossi<strong>3</strong></div>
+    <div>Gialli<strong>2</strong></div>
+    <div>Verdi<strong>10</strong></div>
+    <div>Info<strong>0</strong></div>
+  </div>
+  <div class="grid"><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DR. GAZZOLA</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">28,07 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">9,36 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">15,28 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (15.28 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - CARPEGNA</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">25,64 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">5</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">5,13 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">Performance nella norma; serie storica insufficiente.</div>
+    </div><div class="card giallo">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DR. ANDREA MORTILLARO</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge giallo">DA OSSERVARE</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">22,14 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">7,38 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">4,65 €</div></div>
+      </div>
+      <div class="action">CPL +59% vs media 6gg (4.65 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DR. RICAPITO EZIO</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">19,72 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">9</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">2,19 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">10,44 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (10.44 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DR. MARCO BALDANZI</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">19,56 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">6,52 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">9,36 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (9.36 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DOTT.SSA DEL VESCOVO</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">16,38 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">16,38 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">18,12 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (18.12 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DOTT.SSA SARA BRESCHIGLIARO</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">15,71 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">7,86 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">14,83 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (14.83 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DOTT.SSA FRANCESCA PES</div>
+          <div class="meta">1 ad-set · 0/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">14,92 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">14,92 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">—</div></div>
+      </div>
+      <div class="action">Performance nella norma; serie storica insufficiente.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Sculpt - DR. GIOVANNI PIPINO</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">13,91 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">9,57 €</div></div>
+      </div>
+      <div class="action">0 lead oggi a fronte di spesa significativa.</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DOTT.SSA TIZIANA MASTROMARINO</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">12,90 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">12,64 €</div></div>
+      </div>
+      <div class="action">0 lead oggi a fronte di spesa significativa.</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - STUDIO DOTT. RICCIARDI LUMINA</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">12,67 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">2</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">6,33 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">12,91 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (12.91 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DOTT. FABIO SCUDERI</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">11,62 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">3</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">3,87 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">4,50 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (4.5 €).</div>
+    </div><div class="card verde">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Sculpt - DR. VINCENZO LOLLI</div>
+          <div class="meta">1 ad-set · 1/7 gg storico</div>
+        </div>
+        <span class="badge verde">OK</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">11,29 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">4</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">2,82 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">8,35 €</div></div>
+      </div>
+      <div class="action">CPL nella norma vs media 6gg (8.35 €).</div>
+    </div><div class="card rosso">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DR. GOSETTI</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge rosso">ALERT</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">11,25 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">0</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">—</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">7,87 €</div></div>
+      </div>
+      <div class="action">0 lead oggi a fronte di spesa significativa.</div>
+    </div><div class="card giallo">
+      <div class="card-head">
+        <div>
+          <div class="name">Open Day - Total Lift - DOTT. LO GIUDICE</div>
+          <div class="meta">1 ad-set · 3/7 gg storico</div>
+        </div>
+        <span class="badge giallo">DA OSSERVARE</span>
+      </div>
+      <div class="kpi">
+        <div><div class="lab">Spend</div><div class="val">10,58 €</div></div>
+        <div><div class="lab">Lead</div><div class="val">1</div></div>
+        <div><div class="lab">CPL oggi</div><div class="val">10,58 €</div></div>
+        <div><div class="lab">Media 7gg</div><div class="val">7,50 €</div></div>
+      </div>
+      <div class="action">CPL +41% vs media 6gg (7.5 €).</div>
+    </div></div>
+  <footer>Generato automaticamente da Cowork CSV Automation · fonte: email project@cea.management</footer>
+</div>
+</body>
+</html>

@@ -2385,6 +2385,348 @@
           "cpl": null
         }
       ]
+    },
+    "2026-05-26": {
+      "cea": [
+        {
+          "cliente": "Baldan Group USA",
+          "spesa": 1235.73,
+          "lead": 11,
+          "cpl": 112.34
+        },
+        {
+          "cliente": "Dott.ssa Orsola Bruno AP",
+          "spesa": 66.34,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Happy laser CEA",
+          "spesa": 32.99,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Exthetyc",
+          "spesa": 31.35,
+          "lead": 3,
+          "cpl": 10.45
+        },
+        {
+          "cliente": "ADV - Brera13 Beauty",
+          "spesa": 27.43,
+          "lead": 3,
+          "cpl": 9.14
+        },
+        {
+          "cliente": "Fatima Nail Studio",
+          "spesa": 25.57,
+          "lead": 3,
+          "cpl": 8.52
+        },
+        {
+          "cliente": "ADV Maison Kuku",
+          "spesa": 24.89,
+          "lead": 1,
+          "cpl": 24.89
+        },
+        {
+          "cliente": "ADV Linea Più Casale",
+          "spesa": 24.13,
+          "lead": 1,
+          "cpl": 24.13
+        },
+        {
+          "cliente": "ADV Visamour",
+          "spesa": 23.83,
+          "lead": 2,
+          "cpl": 11.91
+        },
+        {
+          "cliente": "ADV - Estetica Rosy",
+          "spesa": 23.29,
+          "lead": 1,
+          "cpl": 23.29
+        },
+        {
+          "cliente": "Corporea Wellness Experience",
+          "spesa": 22.88,
+          "lead": 1,
+          "cpl": 22.88
+        },
+        {
+          "cliente": "ADV - Farmacia Martelletto",
+          "spesa": 22.69,
+          "lead": 1,
+          "cpl": 22.69
+        },
+        {
+          "cliente": "Farmacia Padre Pio",
+          "spesa": 22.2,
+          "lead": 1,
+          "cpl": 22.2
+        },
+        {
+          "cliente": "Farmacia Di Gennaro",
+          "spesa": 19.28,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Erresse Esthetique Ads",
+          "spesa": 18.61,
+          "lead": 1,
+          "cpl": 18.61
+        },
+        {
+          "cliente": "Black Queen Beauty Art",
+          "spesa": 18.29,
+          "lead": 1,
+          "cpl": 18.29
+        },
+        {
+          "cliente": "Centro Estetico Enrica",
+          "spesa": 18.26,
+          "lead": 3,
+          "cpl": 6.09
+        },
+        {
+          "cliente": "Tyla Institute Estetica",
+          "spesa": 17.91,
+          "lead": 1,
+          "cpl": 17.91
+        },
+        {
+          "cliente": "ADV - Body Laser",
+          "spesa": 17.1,
+          "lead": 3,
+          "cpl": 5.7
+        },
+        {
+          "cliente": "ADV SANITAL ECO STORE",
+          "spesa": 16.58,
+          "lead": 1,
+          "cpl": 16.58
+        },
+        {
+          "cliente": "ADV FARMACIA CLEMENTE",
+          "spesa": 16.21,
+          "lead": 3,
+          "cpl": 5.4
+        },
+        {
+          "cliente": "ADV - Pietrabianca",
+          "spesa": 15.28,
+          "lead": 7,
+          "cpl": 2.18
+        },
+        {
+          "cliente": "Centro Mességué ADS 2025",
+          "spesa": 13.19,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Centro Benesse",
+          "spesa": 12.62,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "ADV Solelù",
+          "spesa": 12.58,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Mercato Digital",
+          "spesa": 12.39,
+          "lead": 1,
+          "cpl": 12.39
+        },
+        {
+          "cliente": "B-ewolution by Beauty Way",
+          "spesa": 12.27,
+          "lead": 1,
+          "cpl": 12.27
+        },
+        {
+          "cliente": "ADV Sesto Senso Beauty Lounge",
+          "spesa": 11.88,
+          "lead": 2,
+          "cpl": 5.94
+        },
+        {
+          "cliente": "Andreea Francu Renzo Gestione",
+          "spesa": 11.82,
+          "lead": 1,
+          "cpl": 11.82
+        },
+        {
+          "cliente": "AG Farma",
+          "spesa": 9.7,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "ADV - Centro Benessere Polverino",
+          "spesa": 9.62,
+          "lead": 3,
+          "cpl": 3.21
+        },
+        {
+          "cliente": "Urban Fitness Cantù",
+          "spesa": 9.62,
+          "lead": 1,
+          "cpl": 9.62
+        },
+        {
+          "cliente": "Beauty Art",
+          "spesa": 9.39,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "L'estetica che ti cambia la vita - ITALIA",
+          "spesa": 8.92,
+          "lead": 1,
+          "cpl": 8.92
+        },
+        {
+          "cliente": "Centro estetico natura",
+          "spesa": 8.12,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Masi di Marina Grappasonni e c. sas",
+          "spesa": 7.94,
+          "lead": 2,
+          "cpl": 3.97
+        },
+        {
+          "cliente": "ADV - ELYSIR CURNO",
+          "spesa": 6.97,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "ADV CENTRO ESTETICO AMBRA",
+          "spesa": 6.22,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Eternity LB - Account pubblicitario",
+          "spesa": 3.46,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Donnauomo",
+          "spesa": 1.06,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Beauty Point Srl",
+          "spesa": 0.25,
+          "lead": 0,
+          "cpl": null
+        }
+      ],
+      "medtech": [
+        {
+          "cliente": "Open Day - Total Lift - DR. GAZZOLA",
+          "spesa": 28.07,
+          "lead": 3,
+          "cpl": 9.36
+        },
+        {
+          "cliente": "Open Day - Total Lift - CARPEGNA",
+          "spesa": 25.64,
+          "lead": 5,
+          "cpl": 5.13
+        },
+        {
+          "cliente": "Open Day - Total Lift - DR. ANDREA MORTILLARO",
+          "spesa": 22.14,
+          "lead": 3,
+          "cpl": 7.38
+        },
+        {
+          "cliente": "Open Day - Total Lift - DR. RICAPITO EZIO",
+          "spesa": 19.72,
+          "lead": 9,
+          "cpl": 2.19
+        },
+        {
+          "cliente": "Open Day - Total Lift - DR. MARCO BALDANZI",
+          "spesa": 19.56,
+          "lead": 3,
+          "cpl": 6.52
+        },
+        {
+          "cliente": "Open Day - Total Lift - DOTT.SSA DEL VESCOVO",
+          "spesa": 16.38,
+          "lead": 1,
+          "cpl": 16.38
+        },
+        {
+          "cliente": "Open Day - Total Lift - DOTT.SSA SARA BRESCHIGLIARO",
+          "spesa": 15.71,
+          "lead": 2,
+          "cpl": 7.86
+        },
+        {
+          "cliente": "Open Day - Total Lift - DOTT.SSA FRANCESCA PES",
+          "spesa": 14.92,
+          "lead": 1,
+          "cpl": 14.92
+        },
+        {
+          "cliente": "Open Day - Total Sculpt - DR. GIOVANNI PIPINO",
+          "spesa": 13.91,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Open Day - Total Lift - DOTT.SSA TIZIANA MASTROMARINO",
+          "spesa": 12.9,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Open Day - Total Lift - STUDIO DOTT. RICCIARDI LUMINA",
+          "spesa": 12.67,
+          "lead": 2,
+          "cpl": 6.33
+        },
+        {
+          "cliente": "Open Day - Total Lift - DOTT. FABIO SCUDERI",
+          "spesa": 11.62,
+          "lead": 3,
+          "cpl": 3.87
+        },
+        {
+          "cliente": "Open Day - Total Sculpt - DR. VINCENZO LOLLI",
+          "spesa": 11.29,
+          "lead": 4,
+          "cpl": 2.82
+        },
+        {
+          "cliente": "Open Day - Total Lift - DR. GOSETTI",
+          "spesa": 11.25,
+          "lead": 0,
+          "cpl": null
+        },
+        {
+          "cliente": "Open Day - Total Lift - DOTT. LO GIUDICE",
+          "spesa": 10.58,
+          "lead": 1,
+          "cpl": 10.58
+        }
+      ]
     }
   }
 }
