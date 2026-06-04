@@ -3826,6 +3826,285 @@
      "cpl": 18.5
     }
    ]
+  },
+  "2026-06-03": {
+   "cea": [
+    {
+     "cliente": "ADV Esthetique",
+     "spend": 38.99,
+     "leads": 2,
+     "cpl": 19.49
+    },
+    {
+     "cliente": "Exthetyc",
+     "spend": 29.17,
+     "leads": 1,
+     "cpl": 29.17
+    },
+    {
+     "cliente": "ADV CENTRO BENESSERE COCCOLE",
+     "spend": 29.05,
+     "leads": 1,
+     "cpl": 29.05
+    },
+    {
+     "cliente": "Beauty Point Srl",
+     "spend": 25.02,
+     "leads": 1,
+     "cpl": 25.02
+    },
+    {
+     "cliente": "ADV - ELYSIR CURNO",
+     "spend": 23.86,
+     "leads": 1,
+     "cpl": 23.86
+    },
+    {
+     "cliente": "ADV ESTETICA PAMELA",
+     "spend": 23.75,
+     "leads": 1,
+     "cpl": 23.75
+    },
+    {
+     "cliente": "ADV Linea Più Casale",
+     "spend": 22.32,
+     "leads": 1,
+     "cpl": 22.32
+    },
+    {
+     "cliente": "Exclusive Sun Club 2",
+     "spend": 21.25,
+     "leads": 4,
+     "cpl": 5.31
+    },
+    {
+     "cliente": "B-ewolution by Beauty Way",
+     "spend": 21.16,
+     "leads": 2,
+     "cpl": 10.58
+    },
+    {
+     "cliente": "Farmacia Padre Pio",
+     "spend": 19.82,
+     "leads": 2,
+     "cpl": 9.91
+    },
+    {
+     "cliente": "Corporea Wellness Experience",
+     "spend": 19.11,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Luana Beauty",
+     "spend": 18.52,
+     "leads": 2,
+     "cpl": 9.26
+    },
+    {
+     "cliente": "ADV - Body Laser",
+     "spend": 17.6,
+     "leads": 2,
+     "cpl": 8.8
+    },
+    {
+     "cliente": "ADV SANITAL ECO STORE",
+     "spend": 17.26,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Estetica Glamour",
+     "spend": 14.95,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Solelù",
+     "spend": 14.9,
+     "leads": 3,
+     "cpl": 4.97
+    },
+    {
+     "cliente": "Black Queen Beauty Art",
+     "spend": 14.6,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Centro Benesse",
+     "spend": 14.58,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Mercato Digital",
+     "spend": 13.16,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Korè sport",
+     "spend": 10.33,
+     "leads": 5,
+     "cpl": 2.07
+    },
+    {
+     "cliente": "Centro estetico natura",
+     "spend": 9.93,
+     "leads": 2,
+     "cpl": 4.96
+    },
+    {
+     "cliente": "Beauty Art",
+     "spend": 9.3,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Mondo NH",
+     "spend": 8.69,
+     "leads": 2,
+     "cpl": 4.34
+    },
+    {
+     "cliente": "ADV Sesto Senso Beauty Lounge",
+     "spend": 6.94,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV CENTRO ESTETICO AMBRA",
+     "spend": 5.87,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Andreea Francu Renzo Gestione",
+     "spend": 4.9,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "aguaviva adv",
+     "spend": 3.4,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Donnauomo",
+     "spend": 0.73,
+     "leads": 0,
+     "cpl": null
+    }
+   ],
+   "medtech": [
+    {
+     "id": "Open Day - Total Lift - DOTT. MICHELE BERNARDO",
+     "campagna": "Open Day - Total Lift - DOTT. MICHELE BERNARDO",
+     "spend": 26.14,
+     "leads": 2,
+     "cpl": 13.07
+    },
+    {
+     "id": "Open Day - Total Lift - DR. GAZZOLA",
+     "campagna": "Open Day - Total Lift - DR. GAZZOLA",
+     "spend": 24.95,
+     "leads": 2,
+     "cpl": 12.47
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA SILVIA SARACINO",
+     "campagna": "Open Day - Total Lift - DOTT.SSA SILVIA SARACINO",
+     "spend": 23.47,
+     "leads": 3,
+     "cpl": 7.82
+    },
+    {
+     "id": "Open Day - Total Lift - DR. ANDREA MORTILLARO",
+     "campagna": "Open Day - Total Lift - DR. ANDREA MORTILLARO",
+     "spend": 21.96,
+     "leads": 1,
+     "cpl": 21.96
+    },
+    {
+     "id": "Open Day - Total Lift - DR. MARCO BALDANZI",
+     "campagna": "Open Day - Total Lift - DR. MARCO BALDANZI",
+     "spend": 19.73,
+     "leads": 6,
+     "cpl": 3.29
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA FRANCESCA PES",
+     "campagna": "Open Day - Total Lift - DOTT.SSA FRANCESCA PES",
+     "spend": 18.99,
+     "leads": 2,
+     "cpl": 9.49
+    },
+    {
+     "id": "Open Day - Total Lift - DEL DR. PORTO SERGIO",
+     "campagna": "Open Day - Total Lift - DEL DR. PORTO SERGIO",
+     "spend": 17.77,
+     "leads": 3,
+     "cpl": 5.92
+    },
+    {
+     "id": "Open Day - Total Lift - DR. GOSETTI",
+     "campagna": "Open Day - Total Lift - DR. GOSETTI",
+     "spend": 17.53,
+     "leads": 4,
+     "cpl": 4.38
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA SARA BRESCHIGLIARO",
+     "campagna": "Open Day - Total Lift - DOTT.SSA SARA BRESCHIGLIARO",
+     "spend": 17.31,
+     "leads": 1,
+     "cpl": 17.31
+    },
+    {
+     "id": "Open Day - Total Lift - DR. ANDREA MACCONI",
+     "campagna": "Open Day - Total Lift - DR. ANDREA MACCONI",
+     "spend": 17.06,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "id": "Open Day - Total Lift - DR. LUCA FONTANA",
+     "campagna": "Open Day - Total Lift - DR. LUCA FONTANA",
+     "spend": 16.39,
+     "leads": 4,
+     "cpl": 4.1
+    },
+    {
+     "id": "Open Day - Total Lift - CARPEGNA",
+     "campagna": "Open Day - Total Lift - CARPEGNA",
+     "spend": 15.95,
+     "leads": 2,
+     "cpl": 7.97
+    },
+    {
+     "id": "Open Day - Total Sculpt - DR. VINCENZO LOLLI",
+     "campagna": "Open Day - Total Sculpt - DR. VINCENZO LOLLI",
+     "spend": 15.9,
+     "leads": 1,
+     "cpl": 15.9
+    },
+    {
+     "id": "Open Day - Total Sculpt - DR. GIOVANNI PIPINO",
+     "campagna": "Open Day - Total Sculpt - DR. GIOVANNI PIPINO",
+     "spend": 8.13,
+     "leads": 1,
+     "cpl": 8.13
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. CASTIGLIONE",
+     "campagna": "Open Day - Total Lift - DOTT. CASTIGLIONE",
+     "spend": 1.96,
+     "leads": 0,
+     "cpl": null
+    }
+   ]
   }
  }
 }
