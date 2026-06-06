@@ -4451,6 +4451,369 @@
      "cpl": null
     }
    ]
+  },
+  "2026-06-05": {
+   "cea": [
+    {
+     "cliente": "Baldan Group USA",
+     "spend": 2084.52,
+     "leads": 12,
+     "cpl": 173.71
+    },
+    {
+     "cliente": "L'estetica che ti cambia la vita - ITALIA",
+     "spend": 71.13,
+     "leads": 20,
+     "cpl": 3.56
+    },
+    {
+     "cliente": "ADV CENTRO BENESSERE COCCOLE",
+     "spend": 31.91,
+     "leads": 1,
+     "cpl": 31.91
+    },
+    {
+     "cliente": "Farmacia Padre Pio",
+     "spend": 31.34,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Tachi Estetica",
+     "spend": 28.71,
+     "leads": 1,
+     "cpl": 28.71
+    },
+    {
+     "cliente": "ADV ARTESTETICA",
+     "spend": 23.75,
+     "leads": 1,
+     "cpl": 23.75
+    },
+    {
+     "cliente": "ADV - ELYSIR CURNO",
+     "spend": 23.24,
+     "leads": 2,
+     "cpl": 11.62
+    },
+    {
+     "cliente": "Beauty Point Srl",
+     "spend": 21.7,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "B-ewolution by Beauty Way",
+     "spend": 21.57,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Ferdys Account Pubblicitario",
+     "spend": 21.23,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Luana Beauty",
+     "spend": 20.6,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Linea Più Casale",
+     "spend": 20.55,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "The Mirror",
+     "spend": 20.25,
+     "leads": 5,
+     "cpl": 4.05
+    },
+    {
+     "cliente": "AG Farma",
+     "spend": 19.4,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV ESTETICA PAMELA",
+     "spend": 19.2,
+     "leads": 1,
+     "cpl": 19.2
+    },
+    {
+     "cliente": "ADV - Body Laser",
+     "spend": 18.73,
+     "leads": 3,
+     "cpl": 6.24
+    },
+    {
+     "cliente": "Exclusive Sun Club 2",
+     "spend": 16.87,
+     "leads": 1,
+     "cpl": 16.87
+    },
+    {
+     "cliente": "ADV - Tetys",
+     "spend": 16.32,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV LINEA PERFETTA",
+     "spend": 15.23,
+     "leads": 1,
+     "cpl": 15.23
+    },
+    {
+     "cliente": "ADV Solelù",
+     "spend": 15.22,
+     "leads": 5,
+     "cpl": 3.04
+    },
+    {
+     "cliente": "ADV - Mudra Centro Benessere",
+     "spend": 15.11,
+     "leads": 1,
+     "cpl": 15.11
+    },
+    {
+     "cliente": "aguaviva adv",
+     "spend": 15.04,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Pietrabianca",
+     "spend": 14.13,
+     "leads": 7,
+     "cpl": 2.02
+    },
+    {
+     "cliente": "Centro Mességué ADS 2025",
+     "spend": 13.96,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Centro Benesse",
+     "spend": 13.73,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Mercato Digital",
+     "spend": 12.55,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Tyla Institute Estetica",
+     "spend": 11.55,
+     "leads": 1,
+     "cpl": 11.55
+    },
+    {
+     "cliente": "Mondo NH",
+     "spend": 9.58,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Korè sport",
+     "spend": 9.39,
+     "leads": 6,
+     "cpl": 1.57
+    },
+    {
+     "cliente": "Donnauomo",
+     "spend": 9.25,
+     "leads": 2,
+     "cpl": 4.62
+    },
+    {
+     "cliente": "Centro estetico natura",
+     "spend": 8.85,
+     "leads": 1,
+     "cpl": 8.85
+    },
+    {
+     "cliente": "ADV - Charme estetica benessere",
+     "spend": 7.96,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Sesto Senso Beauty Lounge",
+     "spend": 7.35,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Estetica Glamour",
+     "spend": 6.08,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV CENTRO ESTETICO AMBRA",
+     "spend": 6.02,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Slim'Up",
+     "spend": 5.95,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Farmacia Martelletto",
+     "spend": 5.75,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV SANITAL ECO STORE",
+     "spend": 5.51,
+     "leads": 1,
+     "cpl": 5.51
+    },
+    {
+     "cliente": "Andreea Francu Renzo Gestione",
+     "spend": 5.16,
+     "leads": 1,
+     "cpl": 5.16
+    },
+    {
+     "cliente": "L'Estetica di Mirjeta",
+     "spend": 1.7,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Beauty Art",
+     "spend": 1.17,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Baldan Intelligence",
+     "spend": 0.0,
+     "leads": 0,
+     "cpl": null
+    }
+   ],
+   "medtech": [
+    {
+     "id": "Open Day - Total Lift - FRATTINI",
+     "campagna": "Open Day - Total Lift - FRATTINI",
+     "spend": 27.37,
+     "leads": 4,
+     "cpl": 6.84
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. MICHELE BERNARDO",
+     "campagna": "Open Day - Total Lift - DOTT. MICHELE BERNARDO",
+     "spend": 27.24,
+     "leads": 1,
+     "cpl": 27.24
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA SILVIA SARACINO",
+     "campagna": "Open Day - Total Lift - DOTT.SSA SILVIA SARACINO",
+     "spend": 27.2,
+     "leads": 2,
+     "cpl": 13.6
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. CASTIGLIONE",
+     "campagna": "Open Day - Total Lift - DOTT. CASTIGLIONE",
+     "spend": 25.39,
+     "leads": 2,
+     "cpl": 12.7
+    },
+    {
+     "id": "Open Day - Total Lift - MEDICENTER CIVITANOVA MARCHE",
+     "campagna": "Open Day - Total Lift - MEDICENTER CIVITANOVA MARCHE",
+     "spend": 23.39,
+     "leads": 5,
+     "cpl": 4.68
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA FRANCESCA PES",
+     "campagna": "Open Day - Total Lift - DOTT.SSA FRANCESCA PES",
+     "spend": 19.84,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "id": "Open Day - Total Lift - DEL DR. PORTO SERGIO",
+     "campagna": "Open Day - Total Lift - DEL DR. PORTO SERGIO",
+     "spend": 19.52,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA SARA BRESCHIGLIARO",
+     "campagna": "Open Day - Total Lift - DOTT.SSA SARA BRESCHIGLIARO",
+     "spend": 19.47,
+     "leads": 2,
+     "cpl": 9.73
+    },
+    {
+     "id": "Open Day - Total Sculpt - DR. VINCENZO LOLLI",
+     "campagna": "Open Day - Total Sculpt - DR. VINCENZO LOLLI",
+     "spend": 19.16,
+     "leads": 1,
+     "cpl": 19.16
+    },
+    {
+     "id": "Open Day - Total Lift - DR. MARCO BALDANZI",
+     "campagna": "Open Day - Total Lift - DR. MARCO BALDANZI",
+     "spend": 18.94,
+     "leads": 1,
+     "cpl": 18.94
+    },
+    {
+     "id": "Open Day - Total Lift - DR. ANDREA MACCONI",
+     "campagna": "Open Day - Total Lift - DR. ANDREA MACCONI",
+     "spend": 18.35,
+     "leads": 1,
+     "cpl": 18.35
+    },
+    {
+     "id": "Open Day - Total Lift - DR. LUCA FONTANA",
+     "campagna": "Open Day - Total Lift - DR. LUCA FONTANA",
+     "spend": 18.32,
+     "leads": 1,
+     "cpl": 18.32
+    },
+    {
+     "id": "Open Day - Total Lift - CARPEGNA",
+     "campagna": "Open Day - Total Lift - CARPEGNA",
+     "spend": 17.2,
+     "leads": 3,
+     "cpl": 5.73
+    },
+    {
+     "id": "Open Day - Total Lift - DR. GAZZOLA",
+     "campagna": "Open Day - Total Lift - DR. GAZZOLA",
+     "spend": 14.97,
+     "leads": 1,
+     "cpl": 14.97
+    },
+    {
+     "id": "Open Day - Total Lift - DR. ANDREA MORTILLARO",
+     "campagna": "Open Day - Total Lift - DR. ANDREA MORTILLARO",
+     "spend": 11.48,
+     "leads": 1,
+     "cpl": 11.48
+    }
+   ]
   }
  }
 }
