@@ -6,7 +6,7 @@ from datetime import datetime
 
 DATE = sys.argv[1]
 WORK = Path(sys.argv[2]) if len(sys.argv) > 2 else Path(".")
-SNAP_REPO = Path("/tmp/run-20260607-071428/csv-daily-snapshots")
+SNAP_REPO = Path("/tmp/csv-daily-snapshots")
 
 MESI = ["", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
         "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"]
