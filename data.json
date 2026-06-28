@@ -11134,6 +11134,302 @@
      "cpl": 21.22
     }
    ]
+  },
+  "2026-06-27": {
+   "cea": [
+    {
+     "cliente": "Baldan Group USA",
+     "spend": 1406.61,
+     "leads": 8,
+     "cpl": 175.83
+    },
+    {
+     "cliente": "Tecnologie Estetiche A Costo Zero",
+     "spend": 250.84,
+     "leads": 3,
+     "cpl": 83.61
+    },
+    {
+     "cliente": "L'estetica che ti cambia la vita - ITALIA",
+     "spend": 52.26,
+     "leads": 1,
+     "cpl": 52.26
+    },
+    {
+     "cliente": "ADV Centro Estetico Eden",
+     "spend": 38.88,
+     "leads": 1,
+     "cpl": 38.88
+    },
+    {
+     "cliente": "ADV - Farmacia Martelletto",
+     "spend": 36.92,
+     "leads": 1,
+     "cpl": 36.92
+    },
+    {
+     "cliente": "ADV - Charme estetica benessere",
+     "spend": 32.99,
+     "leads": 1,
+     "cpl": 32.99
+    },
+    {
+     "cliente": "ADV Linea Più Casale",
+     "spend": 31.97,
+     "leads": 1,
+     "cpl": 31.97
+    },
+    {
+     "cliente": "Andreea Francu Renzo Gestione",
+     "spend": 30.18,
+     "leads": 1,
+     "cpl": 30.18
+    },
+    {
+     "cliente": "Farmacia Padre Pio",
+     "spend": 29.29,
+     "leads": 3,
+     "cpl": 9.76
+    },
+    {
+     "cliente": "Centro Mességué ADS 2025",
+     "spend": 29.1,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Global Care",
+     "spend": 27.8,
+     "leads": 2,
+     "cpl": 13.9
+    },
+    {
+     "cliente": "ADV - Estetica Rosy",
+     "spend": 26.49,
+     "leads": 1,
+     "cpl": 26.49
+    },
+    {
+     "cliente": "Farmacia Di Gennaro",
+     "spend": 26.22,
+     "leads": 1,
+     "cpl": 26.22
+    },
+    {
+     "cliente": "ADV Centri fisico nuovo",
+     "spend": 24.17,
+     "leads": 4,
+     "cpl": 6.04
+    },
+    {
+     "cliente": "Corporea Wellness Experience",
+     "spend": 23.86,
+     "leads": 3,
+     "cpl": 7.95
+    },
+    {
+     "cliente": "Dott.ssa Orsola Bruno AP",
+     "spend": 23.59,
+     "leads": 2,
+     "cpl": 11.8
+    },
+    {
+     "cliente": "ADV CENTRO BENESSERE COCCOLE",
+     "spend": 23.48,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Nuove Sensazioni",
+     "spend": 23.44,
+     "leads": 2,
+     "cpl": 11.72
+    },
+    {
+     "cliente": "ADV - Dermal Center",
+     "spend": 23.24,
+     "leads": 1,
+     "cpl": 23.24
+    },
+    {
+     "cliente": "Erresse Esthetique Ads",
+     "spend": 22.66,
+     "leads": 2,
+     "cpl": 11.33
+    },
+    {
+     "cliente": "ADV - Mudra Centro Benessere",
+     "spend": 22.47,
+     "leads": 2,
+     "cpl": 11.23
+    },
+    {
+     "cliente": "Ferdys Account Pubblicitario",
+     "spend": 19.44,
+     "leads": 2,
+     "cpl": 9.72
+    },
+    {
+     "cliente": "Beauty Point Srl",
+     "spend": 18.93,
+     "leads": 1,
+     "cpl": 18.93
+    },
+    {
+     "cliente": "ADV SANITAL ECO STORE",
+     "spend": 18.68,
+     "leads": 1,
+     "cpl": 18.68
+    },
+    {
+     "cliente": "Maison de Beautè",
+     "spend": 16.97,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Pietrabianca",
+     "spend": 13.89,
+     "leads": 3,
+     "cpl": 4.63
+    },
+    {
+     "cliente": "ADV Esthetique",
+     "spend": 13.47,
+     "leads": 3,
+     "cpl": 4.49
+    },
+    {
+     "cliente": "ADV Estetica Glamour",
+     "spend": 12.4,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Slim'Up",
+     "spend": 11.05,
+     "leads": 1,
+     "cpl": 11.05
+    },
+    {
+     "cliente": "Masi di Marina Grappasonni e c. sas",
+     "spend": 10.61,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Class",
+     "spend": 8.42,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Solelù",
+     "spend": 8.33,
+     "leads": 2,
+     "cpl": 4.17
+    },
+    {
+     "cliente": "Gil Cagné",
+     "spend": 7.71,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Donnauomo",
+     "spend": 7.59,
+     "leads": 1,
+     "cpl": 7.59
+    },
+    {
+     "cliente": "aguaviva adv",
+     "spend": 6.62,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Mercato Digital",
+     "spend": 5.17,
+     "leads": 2,
+     "cpl": 2.58
+    },
+    {
+     "cliente": "Laboratorio Estetico Catia",
+     "spend": 3.77,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Beauty Art",
+     "spend": 1.83,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Tyla Institute Estetica",
+     "spend": 1.79,
+     "leads": 0,
+     "cpl": null
+    }
+   ],
+   "medtech": [
+    {
+     "id": "Open Day - Total Lift - DR PAOLO GADDI",
+     "campagna": "Open Day - Total Lift - DR PAOLO GADDI",
+     "spend": 30.59,
+     "leads": 2,
+     "cpl": 15.29
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. SCARDELLATO MARCO",
+     "campagna": "Open Day - Total Lift - DOTT. SCARDELLATO MARCO",
+     "spend": 27.21,
+     "leads": 3,
+     "cpl": 9.07
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. GAZZOLA",
+     "campagna": "Open Day - Total Lift - DOTT. GAZZOLA",
+     "spend": 27.18,
+     "leads": 3,
+     "cpl": 9.06
+    },
+    {
+     "id": "Open Day - Total Lift - CENTRO MEDICO POLISPECIALISTICO IL GIRASOLE",
+     "campagna": "Open Day - Total Lift - CENTRO MEDICO POLISPECIALISTICO IL GIRASOLE",
+     "spend": 26.15,
+     "leads": 4,
+     "cpl": 6.54
+    },
+    {
+     "id": "Open Day - Total Lift - DR PAOLO PERNTHALER",
+     "campagna": "Open Day - Total Lift - DR PAOLO PERNTHALER",
+     "spend": 25.7,
+     "leads": 3,
+     "cpl": 8.57
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "campagna": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "spend": 24.98,
+     "leads": 6,
+     "cpl": 4.16
+    },
+    {
+     "id": "Open Day - Total Lift - FABRIZIO TATONE",
+     "campagna": "Open Day - Total Lift - FABRIZIO TATONE",
+     "spend": 21.03,
+     "leads": 2,
+     "cpl": 10.52
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA MARCELLA OLIVETI - Copia",
+     "campagna": "Open Day - Total Lift - DOTT.SSA MARCELLA OLIVETI - Copia",
+     "spend": 7.72,
+     "leads": 2,
+     "cpl": 3.86
+    }
+   ]
   }
  }
 }
