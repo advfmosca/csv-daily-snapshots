@@ -12037,6 +12037,326 @@
      "cpl": 4.72
     }
    ]
+  },
+  "2026-07-01": {
+   "cea": [
+    {
+     "cliente": "Baldan Group USA",
+     "spend": 1090.09,
+     "leads": 7,
+     "cpl": 155.73
+    },
+    {
+     "cliente": "Tecnologie Estetiche A Costo Zero",
+     "spend": 489.41,
+     "leads": 32,
+     "cpl": 15.29
+    },
+    {
+     "cliente": "ADV - Charme estetica benessere",
+     "spend": 48.0,
+     "leads": 3,
+     "cpl": 16.0
+    },
+    {
+     "cliente": "L'estetica che ti cambia la vita - ITALIA",
+     "spend": 43.09,
+     "leads": 1,
+     "cpl": 43.09
+    },
+    {
+     "cliente": "Beauty Point Srl",
+     "spend": 36.38,
+     "leads": 3,
+     "cpl": 12.13
+    },
+    {
+     "cliente": "Tyla Institute Estetica",
+     "spend": 34.79,
+     "leads": 2,
+     "cpl": 17.39
+    },
+    {
+     "cliente": "AG Farma",
+     "spend": 33.54,
+     "leads": 6,
+     "cpl": 5.59
+    },
+    {
+     "cliente": "Ferdys Account Pubblicitario",
+     "spend": 29.94,
+     "leads": 1,
+     "cpl": 29.94
+    },
+    {
+     "cliente": "Erresse Esthetique Ads",
+     "spend": 28.39,
+     "leads": 1,
+     "cpl": 28.39
+    },
+    {
+     "cliente": "Black Queen Beauty Art",
+     "spend": 26.79,
+     "leads": 3,
+     "cpl": 8.93
+    },
+    {
+     "cliente": "ADV CENTRO BENESSERE COCCOLE",
+     "spend": 26.37,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Farmacia Di Gennaro",
+     "spend": 26.32,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Farmacia Martelletto",
+     "spend": 26.24,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Atelier Fiumara",
+     "spend": 25.96,
+     "leads": 2,
+     "cpl": 12.98
+    },
+    {
+     "cliente": "ADV Linea Più Casale",
+     "spend": 25.23,
+     "leads": 2,
+     "cpl": 12.62
+    },
+    {
+     "cliente": "ADV Centri fisico nuovo",
+     "spend": 25.14,
+     "leads": 5,
+     "cpl": 5.03
+    },
+    {
+     "cliente": "Leuce - Medicina Estetica",
+     "spend": 24.27,
+     "leads": 2,
+     "cpl": 12.13
+    },
+    {
+     "cliente": "SALUS 2024",
+     "spend": 23.81,
+     "leads": 2,
+     "cpl": 11.9
+    },
+    {
+     "cliente": "AreaBenessere - 102863370101234",
+     "spend": 23.74,
+     "leads": 1,
+     "cpl": 23.74
+    },
+    {
+     "cliente": "Nuove Sensazioni",
+     "spend": 23.7,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Corporea Wellness Experience",
+     "spend": 23.11,
+     "leads": 2,
+     "cpl": 11.55
+    },
+    {
+     "cliente": "Farmacia Padre Pio",
+     "spend": 22.59,
+     "leads": 1,
+     "cpl": 22.59
+    },
+    {
+     "cliente": "ADV Esthetique",
+     "spend": 21.63,
+     "leads": 2,
+     "cpl": 10.81
+    },
+    {
+     "cliente": "Maison de Beautè",
+     "spend": 20.55,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Farmacia Gagliardelli",
+     "spend": 20.2,
+     "leads": 2,
+     "cpl": 10.1
+    },
+    {
+     "cliente": "ADV - Mudra Centro Benessere",
+     "spend": 19.87,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Centro Mességué ADS 2025",
+     "spend": 18.35,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "The Mirror",
+     "spend": 16.51,
+     "leads": 7,
+     "cpl": 2.36
+    },
+    {
+     "cliente": "ADV Slim'Up",
+     "spend": 15.74,
+     "leads": 4,
+     "cpl": 3.93
+    },
+    {
+     "cliente": "Fatima Nail Studio",
+     "spend": 14.68,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV SANITAL ECO STORE",
+     "spend": 13.63,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Beauty Art",
+     "spend": 11.95,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Solelù",
+     "spend": 11.78,
+     "leads": 1,
+     "cpl": 11.78
+    },
+    {
+     "cliente": "Mercato Digital",
+     "spend": 11.75,
+     "leads": 1,
+     "cpl": 11.75
+    },
+    {
+     "cliente": "Andreea Francu Renzo Gestione",
+     "spend": 10.4,
+     "leads": 2,
+     "cpl": 5.2
+    },
+    {
+     "cliente": "Gil Cagné",
+     "spend": 9.96,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Masi di Marina Grappasonni e c. sas",
+     "spend": 9.75,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Exclusive Sun Club 2",
+     "spend": 9.23,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV FARMA 3D",
+     "spend": 9.0,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Korè sport",
+     "spend": 8.71,
+     "leads": 6,
+     "cpl": 1.45
+    },
+    {
+     "cliente": "Dott.ssa Orsola Bruno AP",
+     "spend": 7.74,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Donnauomo",
+     "spend": 6.83,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Class",
+     "spend": 0.0,
+     "leads": 0,
+     "cpl": null
+    }
+   ],
+   "medtech": [
+    {
+     "id": "Open Day - Total Lift - DR PAOLO GADDI",
+     "campagna": "Open Day - Total Lift - DR PAOLO GADDI",
+     "spend": 59.35,
+     "leads": 3,
+     "cpl": 19.78
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. MICHELE BERNARDO",
+     "campagna": "Open Day - Total Lift - DOTT. MICHELE BERNARDO",
+     "spend": 30.31,
+     "leads": 3,
+     "cpl": 10.1
+    },
+    {
+     "id": "Open Day - Total Lift - CENTRO MEDICO POLISPECIALISTICO IL GIRASOLE",
+     "campagna": "Open Day - Total Lift - CENTRO MEDICO POLISPECIALISTICO IL GIRASOLE",
+     "spend": 23.56,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "id": "Open Day - Total Lift - DR ELMO",
+     "campagna": "Open Day - Total Lift - DR ELMO",
+     "spend": 21.57,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "id": "Open Day - Total Lift - DR DI GIACOMO GLAUCO",
+     "campagna": "Open Day - Total Lift - DR DI GIACOMO GLAUCO",
+     "spend": 21.33,
+     "leads": 7,
+     "cpl": 3.05
+    },
+    {
+     "id": "Open Day - Total Lift - GABRIELE ROSANO",
+     "campagna": "Open Day - Total Lift - GABRIELE ROSANO",
+     "spend": 20.65,
+     "leads": 2,
+     "cpl": 10.32
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. SCARDELLATO MARCO",
+     "campagna": "Open Day - Total Lift - DOTT. SCARDELLATO MARCO",
+     "spend": 19.36,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT. GAZZOLA",
+     "campagna": "Open Day - Total Lift - DOTT. GAZZOLA",
+     "spend": 15.25,
+     "leads": 0,
+     "cpl": null
+    }
+   ]
   }
  }
 }
