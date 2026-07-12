@@ -15266,6 +15266,313 @@
      "cpl": 9.68
     }
    ]
+  },
+  "2026-07-11": {
+   "cea": [
+    {
+     "cliente": "Tecnologie Estetiche A Costo Zero",
+     "spend": 259.83,
+     "leads": 3,
+     "cpl": 86.61
+    },
+    {
+     "cliente": "ADV - Charme estetica benessere",
+     "spend": 42.98,
+     "leads": 4,
+     "cpl": 10.75
+    },
+    {
+     "cliente": "ADV - ELYSIR CURNO",
+     "spend": 42.89,
+     "leads": 2,
+     "cpl": 21.45
+    },
+    {
+     "cliente": "ADV - Comfort zone Davines milano fiera",
+     "spend": 42.21,
+     "leads": 1,
+     "cpl": 42.21
+    },
+    {
+     "cliente": "Global Care",
+     "spend": 37.06,
+     "leads": 1,
+     "cpl": 37.06
+    },
+    {
+     "cliente": "ADV Tachi Estetica",
+     "spend": 34.54,
+     "leads": 4,
+     "cpl": 8.63
+    },
+    {
+     "cliente": "Farmacia Di Gennaro",
+     "spend": 29.18,
+     "leads": 1,
+     "cpl": 29.18
+    },
+    {
+     "cliente": "Tyla Institute Estetica",
+     "spend": 28.76,
+     "leads": 2,
+     "cpl": 14.38
+    },
+    {
+     "cliente": "ADV Esthetique",
+     "spend": 28.11,
+     "leads": 1,
+     "cpl": 28.11
+    },
+    {
+     "cliente": "AG Farma",
+     "spend": 27.86,
+     "leads": 2,
+     "cpl": 13.93
+    },
+    {
+     "cliente": "ADV LINEA PERFETTA",
+     "spend": 27.47,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "SALUS 2024",
+     "spend": 25.43,
+     "leads": 1,
+     "cpl": 25.43
+    },
+    {
+     "cliente": "Beauty Point Srl",
+     "spend": 24.69,
+     "leads": 2,
+     "cpl": 12.35
+    },
+    {
+     "cliente": "Fatima Nail Studio",
+     "spend": 24.07,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Centro Mességué ADS 2025",
+     "spend": 24.06,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Leuce - Medicina Estetica",
+     "spend": 23.95,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Farmacia Padre Pio",
+     "spend": 23.23,
+     "leads": 3,
+     "cpl": 7.74
+    },
+    {
+     "cliente": "Nuove Sensazioni",
+     "spend": 23.05,
+     "leads": 1,
+     "cpl": 23.05
+    },
+    {
+     "cliente": "ADV FARMA 3D",
+     "spend": 22.99,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Black Queen Beauty Art",
+     "spend": 22.88,
+     "leads": 1,
+     "cpl": 22.88
+    },
+    {
+     "cliente": "Golden Beauty 2",
+     "spend": 22.36,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Estetica Venus",
+     "spend": 21.84,
+     "leads": 2,
+     "cpl": 10.92
+    },
+    {
+     "cliente": "Farmacia Gagliardelli",
+     "spend": 21.81,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV CENTRO ESTETICO AMBRA",
+     "spend": 21.09,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Visamour",
+     "spend": 20.53,
+     "leads": 5,
+     "cpl": 4.11
+    },
+    {
+     "cliente": "Korè sport",
+     "spend": 19.85,
+     "leads": 6,
+     "cpl": 3.31
+    },
+    {
+     "cliente": "ADV - Brera13 Beauty",
+     "spend": 19.4,
+     "leads": 1,
+     "cpl": 19.4
+    },
+    {
+     "cliente": "Gil Cagné",
+     "spend": 17.45,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Atelier Fiumara",
+     "spend": 17.32,
+     "leads": 1,
+     "cpl": 17.32
+    },
+    {
+     "cliente": "ADV Solelù",
+     "spend": 16.05,
+     "leads": 2,
+     "cpl": 8.03
+    },
+    {
+     "cliente": "ADV Slim'Up",
+     "spend": 13.66,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Beauty Art",
+     "spend": 12.46,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Mercato Digital",
+     "spend": 11.7,
+     "leads": 2,
+     "cpl": 5.85
+    },
+    {
+     "cliente": "Masi di Marina Grappasonni e c. sas",
+     "spend": 10.28,
+     "leads": 1,
+     "cpl": 10.28
+    },
+    {
+     "cliente": "Class",
+     "spend": 10.04,
+     "leads": 2,
+     "cpl": 5.02
+    },
+    {
+     "cliente": "Dott.ssa Orsola Bruno AP",
+     "spend": 9.72,
+     "leads": 1,
+     "cpl": 9.72
+    },
+    {
+     "cliente": "Exclusive Sun Club 2",
+     "spend": 9.57,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Donnauomo",
+     "spend": 7.14,
+     "leads": 3,
+     "cpl": 2.38
+    },
+    {
+     "cliente": "ADV - Farmacia Martelletto",
+     "spend": 5.24,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Urban Fitness Cantù",
+     "spend": 4.03,
+     "leads": 1,
+     "cpl": 4.03
+    },
+    {
+     "cliente": "ADV SANITAL ECO STORE",
+     "spend": 2.37,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "aguaviva adv",
+     "spend": 1.92,
+     "leads": 0,
+     "cpl": null
+    }
+   ],
+   "medtech": [
+    {
+     "id": "Open Day - Total Lift - DR PAOLO GADDI",
+     "campagna": "Open Day - Total Lift - DR PAOLO GADDI",
+     "spend": 32.1,
+     "leads": 3,
+     "cpl": 10.7
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "campagna": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "spend": 29.72,
+     "leads": 5,
+     "cpl": 5.94
+    },
+    {
+     "id": "Open Day - Total Lift - GABRIELE ROSANO",
+     "campagna": "Open Day - Total Lift - GABRIELE ROSANO",
+     "spend": 29.25,
+     "leads": 3,
+     "cpl": 9.75
+    },
+    {
+     "id": "Open Day - Total Lift - STUDIO SPZ",
+     "campagna": "Open Day - Total Lift - STUDIO SPZ",
+     "spend": 28.36,
+     "leads": 3,
+     "cpl": 9.45
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA MARIA LUISA DEL VESCOVO",
+     "campagna": "Open Day - Total Lift - DOTT.SSA MARIA LUISA DEL VESCOVO",
+     "spend": 24.62,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "id": "Open Day - Total Lift - DR ELMO",
+     "campagna": "Open Day - Total Lift - DR ELMO",
+     "spend": 22.4,
+     "leads": 2,
+     "cpl": 11.2
+    },
+    {
+     "id": "Open Day - Total Lift - DR DI GIACOMO GLAUCO",
+     "campagna": "Open Day - Total Lift - DR DI GIACOMO GLAUCO",
+     "spend": 19.02,
+     "leads": 3,
+     "cpl": 6.34
+    }
+   ]
   }
  }
 }
