@@ -16146,6 +16146,233 @@
      "cpl": 9.71
     }
    ]
+  },
+  "2026-07-15": {
+   "cea": [
+    {
+     "cliente": "Baldan Group USA",
+     "spend": 670.43,
+     "leads": 10,
+     "cpl": 67.04
+    },
+    {
+     "cliente": "Tecnologie Estetiche A Costo Zero",
+     "spend": 434.95,
+     "leads": 2,
+     "cpl": 217.47
+    },
+    {
+     "cliente": "ADV Estetica Venus",
+     "spend": 29.2,
+     "leads": 2,
+     "cpl": 14.6
+    },
+    {
+     "cliente": "Global Care",
+     "spend": 29.19,
+     "leads": 1,
+     "cpl": 29.19
+    },
+    {
+     "cliente": "ADV - Comfort zone Davines milano fiera",
+     "spend": 27.34,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Farmacia Padre Pio",
+     "spend": 26.81,
+     "leads": 2,
+     "cpl": 13.4
+    },
+    {
+     "cliente": "Farmacia Di Gennaro",
+     "spend": 26.58,
+     "leads": 1,
+     "cpl": 26.58
+    },
+    {
+     "cliente": "ADV CENTRO ESTETICO AMBRA",
+     "spend": 26.14,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Fatima Nail Studio",
+     "spend": 25.77,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Esthetique",
+     "spend": 25.61,
+     "leads": 1,
+     "cpl": 25.61
+    },
+    {
+     "cliente": "ADV - Brera13 Beauty",
+     "spend": 25.22,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Golden Beauty 2",
+     "spend": 23.48,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Class",
+     "spend": 22.1,
+     "leads": 2,
+     "cpl": 11.05
+    },
+    {
+     "cliente": "ADV SANITAL ECO STORE",
+     "spend": 21.64,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Mercato Digital",
+     "spend": 20.41,
+     "leads": 1,
+     "cpl": 20.41
+    },
+    {
+     "cliente": "ADV Visamour",
+     "spend": 18.8,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Solelù",
+     "spend": 15.42,
+     "leads": 3,
+     "cpl": 5.14
+    },
+    {
+     "cliente": "Gil Cagné",
+     "spend": 15.02,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Korè sport",
+     "spend": 14.07,
+     "leads": 1,
+     "cpl": 14.07
+    },
+    {
+     "cliente": "ADV - Farmacia Martelletto",
+     "spend": 12.85,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV ESTETICA PAMELA",
+     "spend": 11.33,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Masi di Marina Grappasonni e c. sas",
+     "spend": 11.22,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Urban Fitness Cantù",
+     "spend": 10.51,
+     "leads": 3,
+     "cpl": 3.5
+    },
+    {
+     "cliente": "ADV Tachi Estetica",
+     "spend": 10.23,
+     "leads": 3,
+     "cpl": 3.41
+    },
+    {
+     "cliente": "Exclusive Sun Club 2",
+     "spend": 10.15,
+     "leads": 1,
+     "cpl": 10.15
+    },
+    {
+     "cliente": "Dott.ssa Orsola Bruno AP",
+     "spend": 9.68,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Beauty Art",
+     "spend": 9.33,
+     "leads": 1,
+     "cpl": 9.33
+    },
+    {
+     "cliente": "ADV Slim'Up",
+     "spend": 8.44,
+     "leads": 1,
+     "cpl": 8.44
+    },
+    {
+     "cliente": "Eternity LB - Account pubblicitario",
+     "spend": 4.8,
+     "leads": 1,
+     "cpl": 4.8
+    },
+    {
+     "cliente": "ADV - Depilstop",
+     "spend": 2.41,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "aguaviva adv",
+     "spend": 0.16,
+     "leads": 0,
+     "cpl": null
+    }
+   ],
+   "medtech": [
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA LAURA SOTTIL",
+     "campagna": "Open Day - Total Lift - DOTT.SSA LAURA SOTTIL",
+     "spend": 26.95,
+     "leads": 8,
+     "cpl": 3.37
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "campagna": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "spend": 26.74,
+     "leads": 4,
+     "cpl": 6.68
+    },
+    {
+     "id": "Open Day - Total Lift - DR ELMO",
+     "campagna": "Open Day - Total Lift - DR ELMO",
+     "spend": 25.06,
+     "leads": 1,
+     "cpl": 25.06
+    },
+    {
+     "id": "Open Day - Total Lift - STUDIO SPZ",
+     "campagna": "Open Day - Total Lift - STUDIO SPZ",
+     "spend": 24.8,
+     "leads": 1,
+     "cpl": 24.8
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA MARIA LUISA DEL VESCOVO",
+     "campagna": "Open Day - Total Lift - DOTT.SSA MARIA LUISA DEL VESCOVO",
+     "spend": 22.62,
+     "leads": 2,
+     "cpl": 11.31
+    }
+   ]
   }
  }
 }
