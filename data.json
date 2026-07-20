@@ -17101,6 +17101,262 @@
      "cpl": 7.68
     }
    ]
+  },
+  "2026-07-19": {
+   "cea": [
+    {
+     "cliente": "Tecnologie Estetiche A Costo Zero",
+     "spend": 805.88,
+     "leads": 11,
+     "cpl": 73.26
+    },
+    {
+     "cliente": "Centro Mességué ADS 2025",
+     "spend": 136.18,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Erresse Esthetique Ads",
+     "spend": 38.2,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Farmacia Martelletto",
+     "spend": 32.24,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV LINEA PERFETTA",
+     "spend": 31.83,
+     "leads": 2,
+     "cpl": 15.91
+    },
+    {
+     "cliente": "ADV Maison Kuku",
+     "spend": 29.7,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Esthetique",
+     "spend": 27.58,
+     "leads": 4,
+     "cpl": 6.89
+    },
+    {
+     "cliente": "Farmacia Padre Pio",
+     "spend": 27.58,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Farmacia Di Gennaro",
+     "spend": 27.16,
+     "leads": 1,
+     "cpl": 27.16
+    },
+    {
+     "cliente": "ADV ARTESTETICA",
+     "spend": 25.68,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV - Brera13 Beauty",
+     "spend": 25.01,
+     "leads": 1,
+     "cpl": 25.01
+    },
+    {
+     "cliente": "ADV - Comfort zone Davines milano fiera",
+     "spend": 24.89,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Fatima Nail Studio",
+     "spend": 24.78,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Golden Beauty 2",
+     "spend": 23.12,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "AreaBenessere - 102863370101234",
+     "spend": 22.61,
+     "leads": 1,
+     "cpl": 22.61
+    },
+    {
+     "cliente": "The Mirror",
+     "spend": 22.29,
+     "leads": 2,
+     "cpl": 11.14
+    },
+    {
+     "cliente": "ADV - Mudra Centro Benessere",
+     "spend": 21.54,
+     "leads": 3,
+     "cpl": 7.18
+    },
+    {
+     "cliente": "Il bello delle donne Grosseto",
+     "spend": 21.43,
+     "leads": 1,
+     "cpl": 21.43
+    },
+    {
+     "cliente": "Global Care",
+     "spend": 21.17,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Beauty Point Srl",
+     "spend": 21.02,
+     "leads": 3,
+     "cpl": 7.01
+    },
+    {
+     "cliente": "ADV Solelù",
+     "spend": 20.98,
+     "leads": 6,
+     "cpl": 3.5
+    },
+    {
+     "cliente": "Nuove Sensazioni",
+     "spend": 20.61,
+     "leads": 3,
+     "cpl": 6.87
+    },
+    {
+     "cliente": "Class",
+     "spend": 20.43,
+     "leads": 1,
+     "cpl": 20.43
+    },
+    {
+     "cliente": "ADV Linea Più Casale",
+     "spend": 20.13,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV ESTETICA PAMELA",
+     "spend": 19.21,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "ADV Visamour",
+     "spend": 18.72,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Mercato Digital",
+     "spend": 16.84,
+     "leads": 1,
+     "cpl": 16.84
+    },
+    {
+     "cliente": "Kinestetik",
+     "spend": 13.08,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Gil Cagné",
+     "spend": 12.27,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Masi di Marina Grappasonni e c. sas",
+     "spend": 12.18,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Korè sport",
+     "spend": 11.89,
+     "leads": 5,
+     "cpl": 2.38
+    },
+    {
+     "cliente": "ADV Slim'Up",
+     "spend": 10.97,
+     "leads": 2,
+     "cpl": 5.49
+    },
+    {
+     "cliente": "Urban Fitness Cantù",
+     "spend": 10.52,
+     "leads": 1,
+     "cpl": 10.52
+    },
+    {
+     "cliente": "Dott.ssa Orsola Bruno AP",
+     "spend": 10.47,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Beauty Art",
+     "spend": 9.5,
+     "leads": 0,
+     "cpl": null
+    },
+    {
+     "cliente": "Eternity LB - Account pubblicitario",
+     "spend": 7.6,
+     "leads": 4,
+     "cpl": 1.9
+    },
+    {
+     "cliente": "ADV - Depilstop",
+     "spend": 3.91,
+     "leads": 0,
+     "cpl": null
+    }
+   ],
+   "medtech": [
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA LAURA SOTTIL",
+     "campagna": "Open Day - Total Lift - DOTT.SSA LAURA SOTTIL",
+     "spend": 29.45,
+     "leads": 3,
+     "cpl": 9.82
+    },
+    {
+     "id": "Open Day - Total Lift - DR.SSA BRUNA ARGENTI",
+     "campagna": "Open Day - Total Lift - DR.SSA BRUNA ARGENTI",
+     "spend": 28.78,
+     "leads": 3,
+     "cpl": 9.59
+    },
+    {
+     "id": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "campagna": "Open Day - Total Lift - DOTT.SSA ALICE DE FAVERI",
+     "spend": 28.57,
+     "leads": 1,
+     "cpl": 28.57
+    },
+    {
+     "id": "Open Day - Total Lift - STUDIO SPZ",
+     "campagna": "Open Day - Total Lift - STUDIO SPZ",
+     "spend": 22.5,
+     "leads": 2,
+     "cpl": 11.25
+    }
+   ]
   }
  }
 }
